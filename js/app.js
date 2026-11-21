@@ -963,36 +963,53 @@
                 </div>
               </div>
 
-              <!-- Vista 2: Mapa Mental de 4to Grado (Lluvia de Ideas) -->
-              <div id="org-view-mental" class="space-y-2 hidden">
-                <div class="p-4 bg-indigo-50/60 rounded-2xl border border-indigo-200 text-xs space-y-3">
+              <!-- Vista 2: Lluvia de Ideas y Esquema Mental de 4to Grado (Capítulo IX) -->
+              <div id="org-view-mental" class="space-y-3 hidden">
+                <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200 text-xs space-y-3">
                   <div class="text-center font-bold text-slate-900">
-                    <span class="inline-block px-4 py-1.5 bg-indigo-900 text-white rounded-full text-xs shadow-xs font-black">🌱 Beneficios del Huerto (Lluvia de Ideas)</span>
+                    <span class="inline-block px-4 py-1.5 bg-indigo-900 text-white rounded-full text-xs shadow-xs font-black">💭 Lluvia de Ideas: Beneficios del Huerto</span>
                   </div>
-                  <p class="text-[11px] text-center text-indigo-900 font-semibold italic">
+
+                  <!-- Pregunta Generadora Oficial -->
+                  <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-center text-amber-950 font-bold text-xs">
                     ¿Qué obtenemos de un huerto escolar además de alimentos?
-                  </p>
-                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
-                    <div class="p-2.5 bg-white rounded-xl border border-amber-300 shadow-2xs">
-                      <strong class="text-amber-900 block font-bold mb-1">💰 Económicos</strong>
-                      <span class="text-slate-700 block font-semibold">• Ahorro familiar</span>
-                      <span class="text-slate-700 block font-semibold">• Valor de productos</span>
+                  </div>
+
+                  <!-- Ideas de la Clase -->
+                  <div class="space-y-1">
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-slate-500 block">Respuestas registradas en el tablero:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Aprendizaje</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Ahorro</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Trabajo</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Alimentos</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Compañerismo</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Responsabilidad</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Plantas</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Cuidado del ambiente</span>
                     </div>
-                    <div class="p-2.5 bg-white rounded-xl border border-emerald-300 shadow-2xs">
-                      <strong class="text-emerald-900 block font-bold mb-1">🥗 Nutritivos</strong>
-                      <span class="text-slate-700 block font-semibold">• Alimentos frescos</span>
-                      <span class="text-slate-700 block font-semibold">• Nutrición variada</span>
-                    </div>
-                    <div class="p-2.5 bg-white rounded-xl border border-indigo-300 shadow-2xs">
-                      <strong class="text-indigo-900 block font-bold mb-1">👥 Comunitarios</strong>
-                      <span class="text-slate-700 block font-semibold">• Cooperación</span>
-                      <span class="text-slate-700 block font-semibold">• Aprendizaje mutuo</span>
-                      <span class="text-slate-700 block font-semibold">• Responsabilidad</span>
-                    </div>
-                    <div class="p-2.5 bg-white rounded-xl border border-purple-300 shadow-2xs">
-                      <strong class="text-purple-900 block font-bold mb-1">🌿 Ambientales</strong>
-                      <span class="text-slate-700 block font-semibold">• Cuidado de plantas</span>
-                      <span class="text-slate-700 block font-semibold">• Trabajo cooperativo</span>
+                  </div>
+
+                  <!-- Clasificación Oficial en 3 Ejes -->
+                  <div class="pt-2 border-t border-indigo-100">
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-indigo-900 block mb-1.5">Clasificación en el Esquema Mental:</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
+                      <div class="p-2.5 bg-white rounded-xl border border-amber-300 shadow-2xs space-y-1">
+                        <strong class="text-amber-900 block font-bold text-center border-b border-amber-100 pb-0.5">💰 Económicos</strong>
+                        <span class="text-slate-700 block">• Ahorro</span>
+                        <span class="text-slate-700 block">• Valor</span>
+                      </div>
+                      <div class="p-2.5 bg-white rounded-xl border border-emerald-300 shadow-2xs space-y-1">
+                        <strong class="text-emerald-900 block font-bold text-center border-b border-emerald-100 pb-0.5">🥗 Nutritivos</strong>
+                        <span class="text-slate-700 block">• Alimentos</span>
+                        <span class="text-slate-700 block">• Nutrición</span>
+                      </div>
+                      <div class="p-2.5 bg-white rounded-xl border border-indigo-300 shadow-2xs space-y-1">
+                        <strong class="text-indigo-900 block font-bold text-center border-b border-indigo-100 pb-0.5">👥 Comunitarios</strong>
+                        <span class="text-slate-700 block">• Cooperación</span>
+                        <span class="text-slate-700 block">• Aprendizaje</span>
+                        <span class="text-slate-700 block">• Responsabilidad</span>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapa Mental: Lluvia de Ideas del Huerto Escolar | 4.° Grado MEDUCA</title>
+  <title>Lluvia de Ideas: Beneficios del Huerto | 4.° Grado MEDUCA</title>
   <!-- Google Fonts & Tailwind CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,13 +23,6 @@
       height: auto !important;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
     }
-    .mermaid .node rect,
-    .mermaid .node circle,
-    .mermaid .node polygon {
-      stroke-width: 2px !important;
-      rx: 14px !important;
-      ry: 14px !important;
-    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col p-4 sm:p-6 selection:bg-indigo-500 selection:text-white">
@@ -42,12 +35,15 @@
           <span class="text-xs font-bold bg-amber-400 text-amber-950 px-2.5 py-0.5 rounded-full">
             Cuarto Grado (4.°)
           </span>
+          <span class="text-xs font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full">
+            Capítulo IX: Lluvia de Ideas
+          </span>
         </div>
         <h1 class="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
-          🧠 Mapa Mental: Lluvia de Ideas del Huerto
+          💭 Lluvia de Ideas y Esquema Mental del Huerto
         </h1>
         <p class="text-xs sm:text-sm text-indigo-100 mt-1">
-          Pregunta generadora: ¿Qué obtenemos del huerto escolar además de alimentos?
+          Pregunta generadora: ¿Qué obtenemos de un huerto escolar además de alimentos?
         </p>
       </div>
       <div class="flex items-center gap-2">
@@ -61,14 +57,58 @@
   <!-- Contenedor Principal -->
   <main class="max-w-4xl w-full mx-auto flex-1 flex flex-col justify-start space-y-6">
 
-    <!-- Tarjeta del Diagrama Mermaid -->
+    <!-- Tarjeta 1: Pregunta Generadora e Ideas Iniciales -->
+    <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <div class="flex items-center gap-2.5 pb-2 border-b border-slate-100">
+        <span class="text-xl">❓</span>
+        <h2 class="text-base font-black text-indigo-950">Pregunta Generadora</h2>
+      </div>
+
+      <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-amber-950 font-bold text-sm text-center">
+        ¿Qué obtenemos de un huerto escolar además de alimentos?
+      </div>
+
+      <div>
+        <h3 class="text-xs font-black text-slate-700 uppercase tracking-wider mb-2">
+          Registro de Respuestas (Ideas de la Clase):
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+          <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-semibold text-slate-800 text-center">
+            💡 Aprendizaje
+          </div>
+          <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-semibold text-slate-800 text-center">
+            💡 Ahorro
+          </div>
+          <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-semibold text-slate-800 text-center">
+            💡 Trabajo
+          </div>
+          <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-semibold text-slate-800 text-center">
+            💡 Alimentos
+          </div>
+          <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-semibold text-slate-800 text-center">
+            💡 Compañerismo
+          </div>
+          <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-semibold text-slate-800 text-center">
+            💡 Responsabilidad
+          </div>
+          <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-semibold text-slate-800 text-center">
+            💡 Plantas
+          </div>
+          <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 font-semibold text-slate-800 text-center">
+            💡 Cuidado del ambiente
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tarjeta 2: Diagrama de Clasificación (Mindmap Oficial) -->
     <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
       
       <!-- Barra de herramientas limpia -->
       <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100 text-xs">
         <div class="flex items-center gap-2">
           <span class="w-3 h-3 rounded-full bg-indigo-500 animate-pulse"></span>
-          <span class="font-bold text-slate-700">Esquema Mental Vectorial</span>
+          <span class="font-bold text-slate-700">Clasificación en Esquema Mental (Mindmap Oficial)</span>
         </div>
         <div class="flex items-center gap-2">
           <button onclick="zoomIn()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg font-bold text-slate-700" title="Aumentar tamaño">
@@ -80,50 +120,29 @@
         </div>
       </div>
 
-      <!-- Lienzo donde se renderiza el Diagrama Mermaid -->
-      <div id="diagram-container" class="overflow-auto p-4 sm:p-6 flex justify-center items-center min-h-[480px] bg-slate-50/70 rounded-2xl border border-slate-200/80 transition-all">
+      <!-- Lienzo donde se renderiza el Diagrama Mermaid Oficial -->
+      <div id="diagram-container" class="overflow-auto p-4 sm:p-6 flex justify-center items-center min-h-[440px] bg-slate-50/70 rounded-2xl border border-slate-200/80 transition-all">
         <div class="mermaid w-full flex justify-center text-center" id="mermaid-target">
-flowchart TD
-    ROOT(("🌱 BENEFICIOS DEL<br/>HUERTO ESCOLAR"))
-
-    ROOT --- E["💰 Económicos"]
-    E --- E1["Ahorro"]
-    E --- E2["Valor de los productos"]
-
-    ROOT --- N["🥗 Nutritivos"]
-    N --- N1["Alimentos frescos"]
-    N --- N2["Nutrición variada"]
-
-    ROOT --- C["👥 Comunitarios"]
-    C --- C1["Cooperación"]
-    C --- C2["Aprendizaje"]
-    C --- C3["Responsabilidad"]
-
-    ROOT --- F["🌿 Ambientales y Formativos"]
-    F --- F1["Cuidado de plantas"]
-    F --- F2["Trabajo en equipo"]
-
-    classDef root fill:#312e81,stroke:#1e1b4b,color:#ffffff,font-weight:bold,stroke-width:3px;
-    classDef branchE fill:#fef3c7,stroke:#f59e0b,color:#78350f,font-weight:bold;
-    classDef branchN fill:#dcfce7,stroke:#10b981,color:#064e3b,font-weight:bold;
-    classDef branchC fill:#e0e7ff,stroke:#6366f1,color:#312e81,font-weight:bold;
-    classDef branchF fill:#f0fdf4,stroke:#22c55e,color:#14532d,font-weight:bold;
-    classDef leaf fill:#ffffff,stroke:#94a3b8,color:#1e293b;
-
-    class ROOT root;
-    class E branchE;
-    class N branchN;
-    class C branchC;
-    class F branchF;
-    class E1,E2,N1,N2,C1,C2,C3,F1,F2 leaf;
+mindmap
+  root((Beneficios del huerto))
+    Económicos
+      Ahorro
+      Valor
+    Nutritivos
+      Alimentos
+      Nutrición
+    Comunitarios
+      Cooperación
+      Aprendizaje
+      Responsabilidad
         </div>
       </div>
 
       <!-- Explicación pedagógica -->
       <div class="p-4 bg-indigo-50 rounded-2xl border border-indigo-200 text-xs text-indigo-950 space-y-1.5">
-        <h3 class="font-bold text-indigo-900 text-sm">💡 Guía de Elaboración para el Estudiante:</h3>
+        <h3 class="font-bold text-indigo-900 text-sm">💡 Clasificación Oficial:</h3>
         <p class="leading-relaxed">
-          Este mapa mental representa la lluvia de ideas en torno a la pregunta: <em>¿Qué obtenemos del huerto además de alimentos?</em> Muestra cómo el huerto genera aportes económicos, nutricionales, comunitarios y ambientales.
+          Las respuestas aportadas por los estudiantes en la lluvia de ideas se agrupan ordenadamente en los tres tipos de beneficios que establece el programa curricular: <strong>Económicos</strong> (Ahorro y Valor), <strong>Nutritivos</strong> (Alimentos y Nutrición) y <strong>Comunitarios</strong> (Cooperación, Aprendizaje y Responsabilidad).
         </p>
       </div>
 
@@ -139,12 +158,7 @@ flowchart TD
     mermaid.initialize({
       startOnLoad: true,
       theme: 'neutral',
-      securityLevel: 'loose',
-      flowchart: {
-        curve: 'basis',
-        nodeSpacing: 45,
-        rankSpacing: 50
-      }
+      securityLevel: 'loose'
     });
 
     let currentScale = 1;
