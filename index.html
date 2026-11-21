@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Actividades de Agricultura — Tercer Trimestre 2026</title>
+  <meta name="description" content="Portal de actividades curriculares de Tecnología (Agricultura) para 3°, 4°, 5° y 6° grado. Tercer Trimestre Activo. Prof. Carlos Iván Pimentel Marín.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            meduca: {
+              navy: '#0f2c59',
+              blue: '#1e3a8a',
+              gold: '#d97706'
+            },
+            agro: {
+              green: '#059669',
+              emerald: '#10b981',
+              dark: '#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Estilos personalizados para móvil y botones grandes -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
+
+  <!-- ========================================================================
+       BARRA SUPERIOR LIMPIA E INSTITUCIONAL
+       ======================================================================== -->
+  <header class="bg-meduca-navy text-white shadow-md border-b-4 border-agro-emerald no-print sticky top-0 z-30">
+    <div class="max-w-2xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="text-2xl">🌱</span>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-white/10 px-1.5 py-0.2 rounded">
+              MEDUCA 2026
+            </span>
+            <span class="text-[10px] font-bold text-amber-300 bg-amber-950/60 px-1.5 py-0.2 rounded border border-amber-400/30">
+              III TRIMESTRE (ACTIVO)
+            </span>
+          </div>
+          <h1 class="text-base font-black tracking-tight text-white leading-tight mt-0.5">
+            Actividades de Agricultura
+          </h1>
+          <p class="text-[11px] text-slate-300">Prof. Carlos Iván Pimentel Marín</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       CONTENIDO PRINCIPAL: NAVEGACIÓN EN PANTALLAS (MÓVIL FIRST)
+       ======================================================================== -->
+  <main class="flex-1 max-w-2xl w-full mx-auto px-4 py-5 flex flex-col justify-start">
+
+    <!-- ======================================================================
+         PANTALLA 1: SELECCIÓN DE GRADOS (BOTONES GRANDES DE ANCHO COMPLETO)
+         ====================================================================== -->
+    <section id="screen-grades" class="screen-view space-y-4">
+      <div class="text-center pb-2">
+        <h2 class="text-xl font-black text-slate-900 tracking-tight">Selecciona un Grado</h2>
+        <p class="text-xs text-slate-500 mt-0.5">Tercer Trimestre • Educación Básica General Primaria</p>
+      </div>
+
+      <!-- Lista de Botones Grandes -->
+      <div class="space-y-3.5">
+        <!-- 3.° Grado -->
+        <button onclick="window.app.goToGrade('3')" class="btn-grade-card btn-grade-3">
+          <div class="flex items-center gap-3.5">
+            <span class="text-3xl font-black text-white">
+              3.°
+            </span>
+            <div>
+              <h3 class="text-lg font-black leading-tight text-white">Tercer Grado</h3>
+              <p class="text-xs text-white/90 font-medium mt-0.5">3 Grupos: 3A, 3B, 3C • 6 Actividades</p>
+            </div>
+          </div>
+        </button>
+
+        <!-- 4.° Grado -->
+        <button onclick="window.app.goToGrade('4')" class="btn-grade-card btn-grade-4">
+          <div class="flex items-center gap-3.5">
+            <span class="text-3xl font-black text-white">
+              4.°
+            </span>
+            <div>
+              <h3 class="text-lg font-black leading-tight text-white">Cuarto Grado</h3>
+              <p class="text-xs text-white/90 font-medium mt-0.5">3 Grupos: 4A, 4B, 4C • 6 Actividades</p>
+            </div>
+          </div>
+        </button>
+
+        <!-- 5.° Grado -->
+        <button onclick="window.app.goToGrade('5')" class="btn-grade-card btn-grade-5">
+          <div class="flex items-center gap-3.5">
+            <span class="text-3xl font-black text-white">
+              5.°
+            </span>
+            <div>
+              <h3 class="text-lg font-black leading-tight text-white">Quinto Grado</h3>
+              <p class="text-xs text-white/90 font-medium mt-0.5">3 Grupos: 5A, 5B, 5C • 6 Actividades</p>
+            </div>
+          </div>
+        </button>
+
+        <!-- 6.° Grado -->
+        <button onclick="window.app.goToGrade('6')" class="btn-grade-card btn-grade-6">
+          <div class="flex items-center gap-3.5">
+            <span class="text-3xl font-black text-white">
+              6.°
+            </span>
+            <div>
+              <h3 class="text-lg font-black leading-tight text-white">Sexto Grado</h3>
+              <p class="text-xs text-white/90 font-medium mt-0.5">3 Grupos: 6A, 6B, 6C • 6 Actividades</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Resumen Compacto Informativo -->
+      <div class="mt-6 p-4 rounded-2xl bg-white border border-slate-200 shadow-xs text-center text-xs text-slate-700">
+        <span class="font-bold text-slate-800 text-sm">Centro Educativo Básico General Cerro Tigre</span>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PANTALLA 2: SELECCIÓN DE GRUPOS DEL GRADO (BOTONES GRANDES)
+         ====================================================================== -->
+    <section id="screen-groups" class="screen-view hidden space-y-4">
+      <!-- Botón Volver y Encabezado de Grado -->
+      <div class="flex items-center justify-between">
+        <button onclick="window.app.goToGrades()" class="px-3 py-1.5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold transition-all">
+          <span>Volver a Grados</span>
+        </button>
+        <span id="badge-current-grade" class="text-xs font-black uppercase text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-lg"></span>
+      </div>
+
+      <div>
+        <h2 id="title-grade-name" class="text-xl font-black text-slate-900 tracking-tight"></h2>
+        <p class="text-xs text-slate-500 mt-0.5">Selecciona el grupo que deseas consultar:</p>
+      </div>
+
+      <!-- Botones de Grupos (Render dinámico) -->
+      <div id="groups-button-list" class="space-y-3">
+        <!-- Render dinámico de los botones de grupo -->
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PANTALLA 3: LISTADO DE ACTIVIDADES DEL GRUPO SELECCIONADO
+         ====================================================================== -->
+    <section id="screen-activities" class="screen-view hidden space-y-4">
+      <!-- Botón Volver a Grupos -->
+      <div class="flex items-center justify-between">
+        <button onclick="window.app.backToGroups()" class="px-3 py-1.5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold transition-all">
+          <span>Volver a Grupos</span>
+        </button>
+
+        <!-- Toggle entre Tarjetas y Lista -->
+        <div class="flex items-center bg-slate-200 p-0.5 rounded-xl text-xs font-bold">
+          <button id="toggle-cards" onclick="window.app.setActivityLayout('cards')" class="px-2.5 py-1 rounded-lg bg-white text-slate-800 shadow-xs transition-all">
+            🗂️ Tarjetas
+          </button>
+          <button id="toggle-list" onclick="window.app.setActivityLayout('list')" class="px-2.5 py-1 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+            📋 Lista
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjeta Resumen del Grupo Activo -->
+      <div id="active-group-header" class="bg-meduca-navy text-white rounded-2xl p-4 shadow-sm border border-slate-800">
+        <!-- Render dinámico con ID, Horario y total de actividades -->
+      </div>
+
+      <!-- Contenedor de Actividades (Tarjetas o Lista) -->
+      <div id="activities-container" class="space-y-3">
+        <!-- Render dinámico de las actividades -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       MODAL DE DETALLES DE ACTIVIDAD / GUÍA / RECURSOS / EVALUACIÓN
+       ======================================================================== -->
+  <div id="activity-modal" class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4 hidden transition-opacity duration-200">
+    <div class="bg-white w-full sm:max-w-xl max-h-[92vh] sm:rounded-3xl rounded-t-3xl shadow-2xl overflow-hidden flex flex-col animate-modal-in border border-slate-200">
+      
+      <!-- Modal Header con color de categoría -->
+      <div id="modal-header-color" class="bg-slate-900 text-white p-4 sm:p-5 flex items-center justify-between flex-shrink-0">
+        <div class="flex items-center gap-3 min-w-0">
+          <span id="modal-act-num" class="w-10 h-10 rounded-2xl bg-white/20 text-white font-black text-lg flex items-center justify-center flex-shrink-0">
+            1
+          </span>
+          <div class="min-w-0">
+            <div id="modal-badges" class="flex items-center gap-1.5 flex-wrap mb-0.5">
+              <!-- Render dinámico de etiquetas -->
+            </div>
+            <h3 id="modal-act-title" class="text-base sm:text-lg font-black text-white leading-tight truncate">
+              Título
+            </h3>
+          </div>
+        </div>
+        <button onclick="window.app.closeActivityModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center font-bold text-base transition-colors flex-shrink-0 ml-2" title="Cerrar ventana">
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Body (Contenido scrolleable con instrucciones, lección, o preview) -->
+      <div id="modal-act-body" class="p-5 sm:p-6 overflow-y-auto space-y-4 text-slate-800 text-sm leading-relaxed modal-content-box">
+        <!-- Render dinámico -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div id="modal-act-footer" class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3 flex-shrink-0">
+        <!-- Botones de acción dinámicos -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/mermaid.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

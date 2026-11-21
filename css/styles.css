@@ -1,0 +1,194 @@
+/* ==========================================================================
+   PORTAL WEB DE ACTIVIDADES - TECNOLOGÍA (AGRICULTURA) MEDUCA 2026
+   Tercer Trimestre (Trimestre Activo) - Mobile-First y Botones de Pantalla Completa
+   ========================================================================== */
+
+:root {
+  --color-meduca-navy: #0f2c59;
+  --color-meduca-blue: #1e3a8a;
+  --color-agro-green: #059669;
+  --color-agro-emerald: #10b981;
+  --color-gold: #d97706;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f8fafc;
+  color: #0f172a;
+  touch-action: manipulation;
+}
+
+/* Big Action Buttons (Grade Cards) - Paleta Vibrante Agroeducativa */
+.btn-grade-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.35rem;
+  font-weight: 800;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-grade-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+.btn-grade-card:hover, .btn-grade-card:active {
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* 3.° Grado: Verde Esmeralda Vivo Tropical */
+.btn-grade-3 {
+  background: linear-gradient(135deg, #059669 0%, #10b981 55%, #34d399 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 24px -4px rgba(16, 185, 129, 0.42), 0 4px 6px -2px rgba(16, 185, 129, 0.2);
+}
+
+/* 4.° Grado: Turquesa / Azul Cielo Vivo */
+.btn-grade-4 {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 55%, #38bdf8 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 24px -4px rgba(14, 165, 233, 0.42), 0 4px 6px -2px rgba(14, 165, 233, 0.2);
+}
+
+/* 5.° Grado: Naranja / Dorado Cítrico de Cosecha */
+.btn-grade-5 {
+  background: linear-gradient(135deg, #ea580c 0%, #f97316 55%, #fbbf24 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 24px -4px rgba(249, 115, 22, 0.42), 0 4px 6px -2px rgba(249, 115, 22, 0.2);
+}
+
+/* 6.° Grado: Púrpura / Índigo Real Vibrante */
+.btn-grade-6 {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #8b5cf6 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 24px -4px rgba(99, 102, 241, 0.42), 0 4px 6px -2px rgba(99, 102, 241, 0.2);
+}
+
+/* Big Group Button */
+.btn-group-card {
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.btn-group-card:hover, .btn-group-card:active {
+  border-color: #059669;
+  background-color: #f0fdf4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(5, 150, 105, 0.12);
+}
+
+/* Activity Items */
+.activity-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.activity-card:hover {
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+}
+
+/* Badges */
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* View transitions */
+.screen-view {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Activity Detail Modal & Transitions */
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(24px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-modal-in {
+  animation: modalSlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-content-box h4 {
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.modal-content-box ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.modal-content-box li {
+  margin-bottom: 0.25rem;
+}
+
+/* Print Rules */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
