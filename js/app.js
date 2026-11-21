@@ -597,6 +597,139 @@
               </div>
             </div>
           `;
+        } else if (grade === '5') {
+          // GLOSARIO DE TÉRMINOS - 5TO GRADO (Lección 5.3.1: Métodos modernos de producción)
+          bodyHtml = `
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-amber-950">
+              <h4 class="text-sm font-black text-amber-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+                <span>📖</span> Glosario de Términos Agrícolas (5.° Grado)
+              </h4>
+              <p class="text-xs leading-relaxed text-amber-800">
+                Vocabulario técnico curricular: <strong>Métodos modernos de producción agrícola</strong> (Lección 5.3.1).
+              </p>
+            </div>
+
+            <!-- Selector de Modo: Sin Definición vs Con Definición -->
+            <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold">
+              <button id="btn-glosario-palabras" onclick="window.app.setGlossaryView('palabras')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
+                📝 Palabras para el Estudiante (Sin Definición)
+              </button>
+              <button id="btn-glosario-definiciones" onclick="window.app.setGlossaryView('definiciones')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                📘 Con Definiciones Completas
+              </button>
+            </div>
+
+            <!-- Contenido Palabras (Sin Definiciones) -->
+            <div id="glosario-view-palabras" class="space-y-2">
+              <p class="text-xs text-slate-500 italic">
+                Escribe estos 11 conceptos oficiales en tu cuaderno para investigar o formular su significado en clase:
+              </p>
+              <ol class="space-y-1.5 text-xs font-bold text-slate-800 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 list-decimal list-inside">
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Método moderno de producción agrícola</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Selección de semillas</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Germinación</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Semillero</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Plántula</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Selección del terreno</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Preparación del terreno</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Selección de cultivos</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Época de siembra</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Época de cosecha</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Bitácora agrícola</li>
+              </ol>
+            </div>
+
+            <!-- Contenido Con Definiciones (No menos de 20 palabras por concepto) -->
+            <div id="glosario-view-definiciones" class="space-y-2.5 hidden">
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">1. Método moderno de producción agrícola:</strong>
+                <p class="text-slate-600">Forma organizada, planificada y técnica de producir cultivos agrícolas utilizando selección rigurosa de semillas, adecuación del terreno y control constante del desarrollo vegetal.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">2. Selección de semillas:</strong>
+                <p class="text-slate-600">Procedimiento técnico que consiste en evaluar y escoger semillas sanas, limpias, vigorosas y libres de daños para garantizar una germinación uniforme y cosechas productivas.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">3. Germinación:</strong>
+                <p class="text-slate-600">Proceso biológico natural mediante el cual el embrión de una semilla despierta, absorbe humedad y comienza a desarrollarse hasta originar una nueva planta saludable.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">4. Semillero:</strong>
+                <p class="text-slate-600">Espacio protegido y acondicionado especialmente para sembrar, regar y cuidar las semillas durante sus primeras etapas antes de ser trasplantadas al terreno definitivo.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">5. Plántula:</strong>
+                <p class="text-slate-600">Planta tierna en su primera fase de crecimiento que ya posee raíces iniciales, tallo delicado y hojas verdaderas aptas para recibir luz solar.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">6. Selección del terreno:</strong>
+                <p class="text-slate-600">Evaluación detallada del espacio físico escolar donde se verifican factores esenciales como la disponibilidad de agua, luminosidad solar, calidad del suelo y buen drenaje.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">7. Preparación del terreno:</strong>
+                <p class="text-slate-600">Conjunto de labores físicas que incluyen limpieza, deshierbe, remoción profunda del suelo y nivelación para brindar condiciones óptimas al desarrollo de las raíces del cultivo.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">8. Selección de cultivos:</strong>
+                <p class="text-slate-600">Decisión técnica orientada a elegir las especies vegetales más convenientes tomando en cuenta el clima local, la época del año, el espacio disponible y los nutrientes.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">9. Época de siembra:</strong>
+                <p class="text-slate-600">Período del calendario agrícola más propicio y recomendado para sembrar cada especie vegetal, aprovechando las lluvias favorables, la temperatura adecuada y la luz solar.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">10. Época de cosecha:</strong>
+                <p class="text-slate-600">Momento oportuno y exacto en que los frutos, hojas o raíces alcanzan su madurez comercial y valor nutricional adecuado para ser recolectados con cuidado.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-amber-900 block mb-0.5">11. Bitácora agrícola:</strong>
+                <p class="text-slate-600">Cuaderno o registro técnico ordenado donde el estudiante anota sistemáticamente las fechas de siembra, observaciones del crecimiento, labores de riego y cambios del huerto escolar.</p>
+              </div>
+            </div>
+
+            <!-- RÚBRICA OFICIAL VOCABULARIO ILUSTRADO -->
+            <div class="space-y-2 pt-2 border-t border-slate-200">
+              <h4 class="text-sm font-black text-slate-900">Rúbrica Oficial: Vocabulario Ilustrado</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-amber-900">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Definiciones</td>
+                      <td class="p-2.5 text-slate-600">Precisas, completas (mínimo 20 palabras) y redactadas con sus propias palabras.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Cumplimiento en Clase</td>
+                      <td class="p-2.5 text-slate-600">Trabajo realizado íntegramente durante la sesión de clase.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Ilustración</td>
+                      <td class="p-2.5 text-slate-600">Cada término cuenta con ilustración creativa y pertinente.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Caligrafía y Orden</td>
+                      <td class="p-2.5 text-slate-600">Letra impecable y términos ordenados alfabéticamente.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Ortografía</td>
+                      <td class="p-2.5 text-slate-600">Sin errores ortográficos, de puntuación ni acentuación.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          `;
         } else {
           // GLOSARIO DE TÉRMINOS - 3ER GRADO (Lección 3.3.1: El huerto escolar, la salud y la nutrición)
           bodyHtml = `
@@ -1017,6 +1150,283 @@
 
             </div>
           `;
+        } else if (grade === '5') {
+          // LECCIÓN, CONCEPTUAL Y MENTAL - LECCIÓN DE 5TO GRADO (Lección 5.3.1: Métodos modernos de producción)
+          bodyHtml = `
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-amber-950">
+              <h4 class="text-sm font-black text-amber-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+                <span>🌱</span> Lección: Métodos Modernos de Producción Agrícola (5.° Grado)
+              </h4>
+              <p class="text-xs leading-relaxed text-amber-800">
+                Texto didáctico oficial para el cuaderno, organizadores visuales y rúbricas de evaluación (Lección 5.3.1).
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">1. Lección para el Cuaderno (Tablero)</h4>
+              <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-3">
+                <div>
+                  <h5 class="text-sm font-black text-amber-950 mb-1 flex items-center gap-1.5">
+                    <span>🌱</span> Métodos modernos de producción agrícola
+                  </h5>
+                  <p class="leading-relaxed">
+                    Los <strong>métodos modernos de producción agrícola</strong> utilizan procesos organizados para planificar y mejorar el establecimiento y producción de los cultivos.
+                  </p>
+                  <p class="mt-2 leading-relaxed">
+                    Para producir debemos tomar diferentes decisiones antes de sembrar.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-amber-900 font-bold block">1. Selección de semillas:</strong>
+                  <p class="text-slate-600">Consiste en escoger semillas apropiadas para el cultivo. Debemos observar: especie, estado de la semilla, ausencia de daños visibles, procedencia y condiciones donde será sembrada.</p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-emerald-900 font-bold block">2. Germinación y 3. Semillero:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    La <strong>germinación</strong> es el proceso mediante el cual una semilla comienza a desarrollarse y origina una nueva planta cuando encuentra condiciones adecuadas.
+                  </p>
+                  <p class="text-slate-600 leading-relaxed">
+                    El <strong>semillero</strong> es un espacio preparado donde podemos sembrar y cuidar algunas especies durante sus primeras etapas de crecimiento. Nos permite observar la fecha de siembra, germinación, desarrollo y crecimiento de las plántulas.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-blue-900 font-bold block">4. Selección y 5. Preparación del terreno:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    Antes de cultivar debemos escoger un terreno apropiado considerando: luz, agua, suelo, drenaje, espacio y acceso.
+                  </p>
+                  <p class="text-slate-600 leading-relaxed">
+                    La preparación consiste en acondicionar el espacio antes de establecer el cultivo: limpieza, control de malezas, remoción del suelo y organización del área.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-indigo-900 font-bold block">6. Selección del cultivo y 7. Época de siembra y cosecha:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    Debemos elegir un cultivo apropiado para el clima, el terreno, la época, la disponibilidad de agua y el espacio disponible.
+                  </p>
+                  <p class="text-slate-600 leading-relaxed">
+                    Cada cultivo tiene un período apropiado para su establecimiento y un tiempo aproximado para alcanzar la cosecha. Por eso planificamos: <em>¿Qué sembramos? ¿Cuándo sembramos? ¿Cuándo esperamos cosechar?</em>
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-purple-900 font-bold block">8. Bitácora agrícola:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    La <strong>bitácora</strong> es un registro donde anotamos lo que ocurre durante el desarrollo del cultivo: fecha, cultivo, germinación, crecimiento, cuidados y observaciones.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-amber-100/70 border border-amber-300 rounded-xl text-amber-950 font-bold">
+                  <span class="block text-[11px] uppercase tracking-wider text-amber-800 font-black mb-0.5">🌱 Idea principal:</span>
+                  La producción agrícola planificada comienza seleccionando correctamente las semillas, el terreno, el cultivo y la época; además requiere observación y registro durante su desarrollo.
+                </div>
+              </div>
+
+              <!-- Pasos para la confección de mapas con tarjetitas -->
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">2. Técnica de Aprendizaje Activo: Montaje con Tarjetitas</h4>
+              <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-200 text-xs text-amber-950 space-y-2">
+                <p class="font-bold text-amber-900">
+                  Instrucciones para elaborar el Mapa Conceptual en el cuaderno:
+                </p>
+                <div class="space-y-1.5 pl-1 text-slate-700">
+                  <p>
+                    <strong>• 1. Confección de tarjetitas:</strong> Recortar pequeñas tarjetas en papel (blanco o de colores) y escribir a mano los nodos del diagrama (ej. <em>"MÉTODO MODERNO DE PRODUCCIÓN"</em>, <em>"Seleccionar semillas"</em>, <em>"Germinación"</em>, <em>"Semillero"</em>, <em>"PLANIFICACIÓN"</em>, <em>"Bitácora"</em>).
+                  </p>
+                  <p>
+                    <strong>• 2. Armado sobre página blanca:</strong> Ordenar y pegar las tarjetitas sobre una <strong>página blanca limpia</strong>, siguiendo la jerarquía y estructura del mapa borrador trabajado en el tablero.
+                  </p>
+                  <p>
+                    <strong>• 3. Trazado y colores jerárquicos:</strong> Trazar las líneas y flechas de enlace con regla, asignando colores diferenciados para cada nivel y fase productiva.
+                  </p>
+                  <p>
+                    <strong>• 4. Pegado final en el cuaderno:</strong> Pegar la página completada de forma ordenada en el cuaderno de Tecnología.
+                  </p>
+                </div>
+              </div>
+
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">3. Rúbrica Oficial: Lección Escrita y Montaje</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-amber-900">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Calidad del Contenido Copiado</td>
+                      <td class="p-2.5 text-slate-600">Transcribe toda la lección de forma impecable, sin errores y letra clara.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Creatividad y Precisión</td>
+                      <td class="p-2.5 text-slate-600">Figuras originales, de alta precisión y totalmente integradas al tema.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Orden y Limpieza</td>
+                      <td class="p-2.5 text-slate-600">Montaje impecable, perfectamente alineado y sin rastro de pegamento.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Cumplimiento de Tareas</td>
+                      <td class="p-2.5 text-slate-600">Realiza todas las fases del proceso de forma ejemplar y puntual.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">4. Rúbrica Oficial: Mapa Conceptual</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-amber-900">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">40%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Precisión del Contenido</td>
+                      <td class="p-2.5 text-slate-600">Conceptos precisos y ubicados exactamente según el diagrama.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Uso de Colores Jerárquicos</td>
+                      <td class="p-2.5 text-slate-600">Colores distintos y consistentes para cada nivel jerárquico.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Organización Espacial</td>
+                      <td class="p-2.5 text-slate-600">Distribución lógica, equilibrada y perfectamente ordenada.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Presentación y Limpieza</td>
+                      <td class="p-2.5 text-slate-600">Presentación impecable, pegado perfecto sin residuos.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- ORGANIZADORES GRÁFICOS OFICIALES DE 5TO GRADO -->
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">5. Organizadores Gráficos (5.° Grado)</h4>
+              <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold mb-2">
+                <button id="btn-org-conceptual" onclick="window.app.setOrganizerView('conceptual')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
+                  🗺️ Mapa Conceptual
+                </button>
+                <button id="btn-org-mental" onclick="window.app.setOrganizerView('mental')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                  🧠 Mapa Mental
+                </button>
+              </div>
+
+              <!-- Vista 1: Mapa Conceptual de 5to Grado (Capítulo VIII) -->
+              <div id="org-view-conceptual" class="space-y-2">
+                <div class="p-4 bg-amber-50/60 rounded-2xl border border-amber-200 text-xs space-y-3">
+                  <div class="text-center font-bold text-slate-900">
+                    <span class="inline-block px-4 py-1.5 bg-amber-800 text-white rounded-xl shadow-xs text-xs font-black">🌱 MÉTODO MODERNO DE PRODUCCIÓN</span>
+                  </div>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
+                    <div class="p-2.5 bg-white rounded-xl border border-amber-300 shadow-2xs text-center space-y-1">
+                      <strong class="text-amber-900 block font-bold">🌾 Semillas</strong>
+                      <span class="text-slate-600 block">• Selección</span>
+                      <span class="text-slate-600 block">• Germinación</span>
+                      <span class="text-emerald-700 font-bold block bg-emerald-50 rounded px-1 py-0.5">Semillero</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-orange-300 shadow-2xs text-center space-y-1">
+                      <strong class="text-orange-900 block font-bold">🚜 Terreno</strong>
+                      <span class="text-slate-600 block">• Selección</span>
+                      <span class="text-slate-600 block">• Preparación</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-lime-300 shadow-2xs text-center space-y-1">
+                      <strong class="text-lime-900 block font-bold">🌽 Cultivo</strong>
+                      <span class="text-slate-600 block">• Selección cultivo</span>
+                      <span class="text-slate-600 block">• Época siembra</span>
+                      <span class="text-slate-600 block">• Época cosecha</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-blue-300 shadow-2xs text-center space-y-1">
+                      <strong class="text-blue-900 block font-bold">📋 Control</strong>
+                      <span class="text-slate-700 font-bold block bg-blue-50 rounded px-1 py-0.5">Planificación</span>
+                      <span class="text-slate-700 font-bold block bg-amber-50 rounded px-1 py-0.5">📓 Bitácora</span>
+                    </div>
+                  </div>
+                  <p class="text-[11px] text-center text-slate-500">
+                    Estructura conceptual oficial: 7 decisiones clave + Planificación integral + Bitácora técnica.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Vista 2: Lluvia de Ideas y Esquema Mental de 5to Grado (Capítulo IX) -->
+              <div id="org-view-mental" class="space-y-3 hidden">
+                <div class="p-4 bg-orange-50/70 rounded-2xl border border-orange-200 text-xs space-y-3">
+                  <div class="text-center font-bold text-slate-900">
+                    <span class="inline-block px-4 py-1.5 bg-orange-900 text-white rounded-full text-xs shadow-xs font-black">💭 Lluvia de Ideas: Antes de Sembrar</span>
+                  </div>
+
+                  <!-- Pregunta Generadora Oficial -->
+                  <div class="p-2.5 bg-amber-100 rounded-xl border border-amber-300 text-center text-amber-950 font-bold text-xs">
+                    «Si mañana quisiéramos sembrar un nuevo cultivo en el huerto escolar, ¿qué deberíamos decidir antes de colocar la primera semilla?»
+                  </div>
+
+                  <!-- Ideas de la Clase -->
+                  <div class="space-y-1">
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-slate-500 block">Respuestas registradas en el tablero:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Qué cultivar</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Qué semillas utilizar</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Dónde sembrar</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Si hay agua</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Si existe suficiente luz</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Cómo está el suelo</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Cuándo sembrar</span>
+                      <span class="bg-white px-2 py-1 rounded-lg border border-slate-200 text-slate-700 font-semibold text-[11px]">💡 Qué herramientas utilizar</span>
+                    </div>
+                  </div>
+
+                  <!-- Clasificación Oficial en 5 Ejes -->
+                  <div class="pt-2 border-t border-orange-100">
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-orange-950 block mb-1.5">Clasificación en el Esquema Mental (Mermaid Mindmap):</span>
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px]">
+                      <div class="p-2.5 bg-white rounded-xl border border-amber-300 shadow-2xs space-y-1">
+                        <strong class="text-amber-900 block font-bold text-center border-b border-amber-100 pb-0.5">🌾 Semilla</strong>
+                        <span class="text-slate-700 block">• Especie</span>
+                        <span class="text-slate-700 block">• Estado</span>
+                      </div>
+                      <div class="p-2.5 bg-white rounded-xl border border-orange-300 shadow-2xs space-y-1">
+                        <strong class="text-orange-900 block font-bold text-center border-b border-orange-100 pb-0.5">🚜 Terreno</strong>
+                        <span class="text-slate-700 block">• Suelo</span>
+                        <span class="text-slate-700 block">• Agua</span>
+                        <span class="text-slate-700 block">• Luz</span>
+                      </div>
+                      <div class="p-2.5 bg-white rounded-xl border border-lime-300 shadow-2xs space-y-1">
+                        <strong class="text-lime-900 block font-bold text-center border-b border-lime-100 pb-0.5">🌱 Cultivo</strong>
+                        <span class="text-slate-700 block">• Especie</span>
+                        <span class="text-slate-700 block">• Necesidades</span>
+                      </div>
+                      <div class="p-2.5 bg-white rounded-xl border border-sky-300 shadow-2xs space-y-1">
+                        <strong class="text-sky-900 block font-bold text-center border-b border-sky-100 pb-0.5">⏰ Tiempo</strong>
+                        <span class="text-slate-700 block">• Siembra</span>
+                        <span class="text-slate-700 block">• Cosecha</span>
+                      </div>
+                      <div class="p-2.5 bg-white rounded-xl border border-indigo-300 shadow-2xs space-y-1">
+                        <strong class="text-indigo-900 block font-bold text-center border-b border-indigo-100 pb-0.5">📓 Registro</strong>
+                        <span class="text-slate-700 block">• Bitácora</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          `;
         } else {
           // LECCIÓN, CONCEPTUAL Y MENTAL - LECCIÓN DE 3ER GRADO
           bodyHtml = `
@@ -1274,12 +1684,16 @@
 
         const mapConceptualUrl = grade === '3' ? 'recursos/tercero-mapa-conceptual.html'
                                : grade === '4' ? 'recursos/cuarto-mapa-conceptual.html'
+                               : grade === '5' ? 'recursos/quinto-mapa-conceptual.html'
                                : 'recursos/metodos-mapa-conceptual.html';
         const mapMentalUrl = grade === '3' ? 'recursos/tercero-mapa-mental.html'
                            : grade === '4' ? 'recursos/cuarto-mapa-mental.html'
+                           : grade === '5' ? 'recursos/quinto-mapa-mental.html'
                            : 'recursos/metodos-mapa-mental.html';
 
-        const btnClass = grade === '4' ? 'bg-sky-700 hover:bg-sky-800' : 'bg-emerald-700 hover:bg-emerald-800';
+        const btnClass = grade === '4' ? 'bg-sky-700 hover:bg-sky-800'
+                       : grade === '5' ? 'bg-amber-700 hover:bg-amber-800'
+                       : 'bg-emerald-700 hover:bg-emerald-800';
 
         footerHtml = `
           <div class="flex flex-col sm:flex-row gap-2 w-full">
@@ -1300,7 +1714,8 @@
                          : grade === '4' ? 'pruebas/cuarto_grado.html'
                          : grade === '5' ? 'pruebas/quinto_grado.html'
                          : 'pruebas/sexto_grado.html';
-        const leccionDesc = grade === '4' ? 'Lección 4.3.1: Beneficios e importancia del huerto escolar'
+        const leccionDesc = grade === '5' ? 'Lección 5.3.1: Métodos modernos de producción'
+                          : grade === '4' ? 'Lección 4.3.1: Beneficios e importancia del huerto escolar'
                           : 'Lección 3.3.1: El huerto escolar, la salud y la nutrición';
 
         bodyHtml = `
