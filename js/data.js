@@ -397,7 +397,7 @@ var actividadesData = {
             {
               "numero": 5,
               "id": "act_1795293146369",
-              "nombre": "trabajo de campo",
+              "nombre": "Trabajo de Campo",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
@@ -532,7 +532,7 @@ var actividadesData = {
             {
               "numero": 5,
               "id": "act_1795294086378",
-              "nombre": "Prueba evaluativa",
+              "nombre": "Prueba Evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
@@ -569,7 +569,7 @@ var actividadesData = {
             {
               "numero": 3,
               "id": "act_1795294025290",
-              "nombre": "preparación del terreno",
+              "nombre": "Preparación del Terreno",
               "categoria": "Práctica",
               "tipo": "Cotidiana",
               "descripcion": "Actividad didáctica formativa de Agricultura.",
@@ -596,7 +596,7 @@ var actividadesData = {
             {
               "numero": 6,
               "id": "act_1795294047618",
-              "nombre": "Prueba evaluativa",
+              "nombre": "Prueba Evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
@@ -749,7 +749,7 @@ var actividadesData = {
             {
               "numero": 7,
               "id": "act_1795294276406",
-              "nombre": "ensayo: preparación de alimentos",
+              "nombre": "Ensayo: Preparación de Alimentos",
               "categoria": "Práctica",
               "tipo": "Cotidiana",
               "descripcion": "Actividad didáctica formativa de Agricultura.",
@@ -822,7 +822,7 @@ var actividadesData = {
             {
               "numero": 7,
               "id": "act_1795294331392",
-              "nombre": "ensayo: preparación de alimentos",
+              "nombre": "Ensayo: Preparación de Alimentos",
               "categoria": "Práctica",
               "tipo": "Cotidiana",
               "descripcion": "Actividad didáctica formativa de Agricultura.",
@@ -895,7 +895,7 @@ var actividadesData = {
             {
               "numero": 6,
               "id": "act_1795294240736",
-              "nombre": "ensayo: preparación de alimentos",
+              "nombre": "Ensayo: Preparación de Alimentos",
               "categoria": "Práctica",
               "tipo": "Cotidiana",
               "descripcion": "Actividad didáctica formativa de Agricultura.",
@@ -913,7 +913,7 @@ var actividadesData = {
             {
               "numero": 8,
               "id": "act_1795294260058",
-              "nombre": "trabajo de campo",
+              "nombre": "Trabajo de Campo",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
