@@ -338,6 +338,15 @@ var actividadesData = {
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
               "fecha_inicio": ""
+            },
+            {
+              "numero": 4,
+              "id": "act_1795296974214",
+              "nombre": "Prueba evaluativa",
+              "categoria": "Evaluación",
+              "tipo": "Cotidiana",
+              "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
+              "fecha_inicio": ""
             }
           ]
         },
@@ -456,6 +465,15 @@ var actividadesData = {
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 6,
+              "id": "act_1795297004826",
+              "nombre": "Prueba evaluativa",
+              "categoria": "Evaluación",
+              "tipo": "Cotidiana",
+              "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
               "fecha_inicio": ""
             }
           ]

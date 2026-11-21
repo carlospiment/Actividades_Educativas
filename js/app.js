@@ -479,388 +479,794 @@
           </button>
         `;
       } else if (isGlosario) {
-        // GLOSARIO DE TÉRMINOS - 3ER GRADO
-        bodyHtml = `
-          <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 text-indigo-950">
-            <h4 class="text-sm font-black text-indigo-900 uppercase tracking-wide mb-1 flex items-center gap-2">
-              <span>📖</span> Glosario de Términos Agrícolas (3.° Grado)
-            </h4>
-            <p class="text-xs leading-relaxed text-indigo-800">
-              Vocabulario técnico curricular: <strong>El huerto escolar, la salud y la nutrición</strong>.
-            </p>
-          </div>
+        if (grade === '4') {
+          // GLOSARIO DE TÉRMINOS - 4TO GRADO (Lección 4.3.1: Beneficios e importancia del huerto escolar)
+          bodyHtml = `
+            <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4 text-sky-950">
+              <h4 class="text-sm font-black text-sky-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+                <span>📖</span> Glosario de Términos Agrícolas (4.° Grado)
+              </h4>
+              <p class="text-xs leading-relaxed text-sky-800">
+                Vocabulario técnico curricular: <strong>Beneficios e importancia del huerto escolar</strong> (Lección 4.3.1).
+              </p>
+            </div>
 
-          <!-- Selector de Modo: Sin Definición vs Con Definición -->
-          <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold">
-            <button id="btn-glosario-palabras" onclick="window.app.setGlossaryView('palabras')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
-              📝 Palabras para el Estudiante (Sin Definición)
-            </button>
-            <button id="btn-glosario-definiciones" onclick="window.app.setGlossaryView('definiciones')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
-              📘 Con Definiciones Completas
-            </button>
-          </div>
+            <!-- Selector de Modo: Sin Definición vs Con Definición -->
+            <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold">
+              <button id="btn-glosario-palabras" onclick="window.app.setGlossaryView('palabras')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
+                📝 Palabras para el Estudiante (Sin Definición)
+              </button>
+              <button id="btn-glosario-definiciones" onclick="window.app.setGlossaryView('definiciones')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                📘 Con Definiciones Completas
+              </button>
+            </div>
 
-          <!-- Contenido Palabras (Sin Definiciones) -->
-          <div id="glosario-view-palabras" class="space-y-2">
-            <p class="text-xs text-slate-500 italic">
-              Escribe estas 8 palabras oficiales en tu cuaderno para investigar o formular su significado en clase:
-            </p>
-            <ol class="space-y-1.5 text-xs font-bold text-slate-800 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 list-decimal list-inside">
-              <li class="p-1.5 bg-white rounded-lg border border-slate-200">Huerto escolar</li>
-              <li class="p-1.5 bg-white rounded-lg border border-slate-200">Cultivo</li>
-              <li class="p-1.5 bg-white rounded-lg border border-slate-200">Alimento</li>
-              <li class="p-1.5 bg-white rounded-lg border border-slate-200">Nutrición</li>
-              <li class="p-1.5 bg-white rounded-lg border border-slate-200">Nutriente</li>
-              <li class="p-1.5 bg-white rounded-lg border border-slate-200">Valor nutricional</li>
-              <li class="p-1.5 bg-white rounded-lg border border-slate-200">Salud</li>
-              <li class="p-1.5 bg-white rounded-lg border border-slate-200">Cosecha</li>
-            </ol>
-          </div>
+            <!-- Contenido Palabras (Sin Definiciones) -->
+            <div id="glosario-view-palabras" class="space-y-2">
+              <p class="text-xs text-slate-500 italic">
+                Escribe estas 8 palabras oficiales en tu cuaderno para investigar o formular su significado en clase:
+              </p>
+              <ol class="space-y-1.5 text-xs font-bold text-slate-800 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 list-decimal list-inside">
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Huerto escolar</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Beneficio</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Beneficios económicos</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Beneficios nutritivos</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Beneficios comunitarios</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Comunidad educativa</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Nutrición</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Cooperación</li>
+              </ol>
+            </div>
 
-          <!-- Contenido Con Definiciones -->
-          <div id="glosario-view-definiciones" class="space-y-2.5 hidden">
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-              <strong class="text-emerald-800 block mb-0.5">1. Huerto escolar:</strong>
-              <p class="text-slate-600">Espacio de la escuela donde sembramos y cuidamos plantas para aprender y cosechar alimentos nutritivos.</p>
+            <!-- Contenido Con Definiciones (Mínimo 20 palabras por concepto) -->
+            <div id="glosario-view-definiciones" class="space-y-2.5 hidden">
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-sky-900 block mb-0.5">1. Huerto escolar:</strong>
+                <p class="text-slate-600">Espacio educativo dentro de la escuela destinado a cultivar plantas y producir alimentos frescos, donde los estudiantes aprenden técnicas agrícolas, cuidado ambiental y trabajo cooperativo.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-sky-900 block mb-0.5">2. Beneficio:</strong>
+                <p class="text-slate-600">Ventaja, utilidad o aporte positivo que reciben las personas o la comunidad educativa al realizar con esfuerzo y dedicación una actividad productiva o de aprendizaje.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-sky-900 block mb-0.5">3. Beneficios económicos:</strong>
+                <p class="text-slate-600">Aportes relacionados con el ahorro de dinero y el valor de los productos cultivados, disminuyendo la necesidad de comprarlos y enseñando el valor del trabajo agrícola.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-sky-900 block mb-0.5">4. Beneficios nutritivos:</strong>
+                <p class="text-slate-600">Aportes relacionados con la obtención de alimentos sanos, variados y ricos en nutrientes producidos en la escuela, que favorecen el crecimiento adecuado y la salud integral.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-sky-900 block mb-0.5">5. Beneficios comunitarios:</strong>
+                <p class="text-slate-600">Aportes positivos que unen y fortalecen a la escuela y las familias mediante el trabajo en equipo, la responsabilidad compartida y el cuidado mutuo de los espacios comunes.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-sky-900 block mb-0.5">6. Comunidad educativa:</strong>
+                <p class="text-slate-600">Conjunto integrado por estudiantes, docentes, directivos, padres de familia y miembros de la comunidad que colaboran activamente para el desarrollo y bienestar del centro escolar.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-sky-900 block mb-0.5">7. Nutrición:</strong>
+                <p class="text-slate-600">Proceso biológico indispensable mediante el cual nuestro organismo absorbe, transforma y aprovecha los nutrientes de los alimentos consumidos para obtener energía y mantenerse saludable.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-sky-900 block mb-0.5">8. Cooperación:</strong>
+                <p class="text-slate-600">Acción solidaria y coordinada de trabajar juntos y apoyarse mutuamente entre compañeros con el propósito de alcanzar metas comunes en las labores del huerto escolar.</p>
+              </div>
             </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-              <strong class="text-emerald-800 block mb-0.5">2. Cultivo:</strong>
-              <p class="text-slate-600">Planta sembrada y cuidada con cariño en la tierra para obtener frutos, hojas o semillas.</p>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-              <strong class="text-emerald-800 block mb-0.5">3. Alimento:</strong>
-              <p class="text-slate-600">Comida natural que consumimos diariamente para brindarle energía y nutrientes esenciales a todo nuestro cuerpo.</p>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-              <strong class="text-emerald-800 block mb-0.5">4. Nutrición:</strong>
-              <p class="text-slate-600">Proceso mediante el cual nuestro cuerpo utiliza los nutrientes de los alimentos para crecer sano.</p>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-              <strong class="text-emerald-800 block mb-0.5">5. Nutriente:</strong>
-              <p class="text-slate-600">Sustancia vital presente en los alimentos que el cuerpo aprovecha para funcionar, defenderse y desarrollarse.</p>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-              <strong class="text-emerald-800 block mb-0.5">6. Valor nutricional:</strong>
-              <p class="text-slate-600">Información sobre la cantidad de vitaminas, minerales y energía que cada alimento aporta al cuerpo.</p>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-              <strong class="text-emerald-800 block mb-0.5">7. Salud:</strong>
-              <p class="text-slate-600">Estado de completo bienestar físico y mental que nos permite jugar, estudiar y vivir felices.</p>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
-              <strong class="text-emerald-800 block mb-0.5">8. Cosecha:</strong>
-              <p class="text-slate-600">Recolección cuidadosa de los frutos y vegetales maduros producidos con esmero en nuestro huerto escolar.</p>
-            </div>
-          </div>
 
-          <!-- RÚBRICA OFICIAL VOCABULARIO ILUSTRADO -->
-          <div class="space-y-2 pt-2 border-t border-slate-200">
-            <h4 class="text-sm font-black text-slate-900">Rúbrica Oficial: Vocabulario Ilustrado</h4>
-            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
-              <table class="w-full text-xs text-left border-collapse">
-                <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
-                  <tr>
-                    <th class="p-2.5 w-16">Peso</th>
-                    <th class="p-2.5">Criterio Oficial</th>
-                    <th class="p-2.5 text-emerald-800">5 - Excelente</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 bg-white">
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">30%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Definiciones</td>
-                    <td class="p-2.5 text-slate-600">Precisas, completas y redactadas con sus propias palabras.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">20%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Cumplimiento en Clase</td>
-                    <td class="p-2.5 text-slate-600">Trabajo realizado íntegramente durante la sesión de clase.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">20%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Ilustración</td>
-                    <td class="p-2.5 text-slate-600">Cada término cuenta con ilustración creativa y pertinente.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">15%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Caligrafía y Orden</td>
-                    <td class="p-2.5 text-slate-600">Letra impecable y términos ordenados alfabéticamente.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">15%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Ortografía</td>
-                    <td class="p-2.5 text-slate-600">Sin errores ortográficos, de puntuación ni acentuación.</td>
-                  </tr>
-                </tbody>
-              </table>
+            <!-- RÚBRICA OFICIAL VOCABULARIO ILUSTRADO -->
+            <div class="space-y-2 pt-2 border-t border-slate-200">
+              <h4 class="text-sm font-black text-slate-900">Rúbrica Oficial: Vocabulario Ilustrado</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-sky-900">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Definiciones</td>
+                      <td class="p-2.5 text-slate-600">Precisas, completas (mínimo 20 palabras) y redactadas con sus propias palabras.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Cumplimiento en Clase</td>
+                      <td class="p-2.5 text-slate-600">Trabajo realizado íntegramente durante la sesión de clase.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Ilustración</td>
+                      <td class="p-2.5 text-slate-600">Cada término cuenta con ilustración creativa y pertinente.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Caligrafía y Orden</td>
+                      <td class="p-2.5 text-slate-600">Letra impecable y términos ordenados alfabéticamente.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Ortografía</td>
+                      <td class="p-2.5 text-slate-600">Sin errores ortográficos, de puntuación ni acentuación.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        `;
+          `;
+        } else {
+          // GLOSARIO DE TÉRMINOS - 3ER GRADO (Lección 3.3.1: El huerto escolar, la salud y la nutrición)
+          bodyHtml = `
+            <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 text-indigo-950">
+              <h4 class="text-sm font-black text-indigo-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+                <span>📖</span> Glosario de Términos Agrícolas (3.° Grado)
+              </h4>
+              <p class="text-xs leading-relaxed text-indigo-800">
+                Vocabulario técnico curricular: <strong>El huerto escolar, la salud y la nutrición</strong>.
+              </p>
+            </div>
+
+            <!-- Selector de Modo: Sin Definición vs Con Definición -->
+            <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold">
+              <button id="btn-glosario-palabras" onclick="window.app.setGlossaryView('palabras')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
+                📝 Palabras para el Estudiante (Sin Definición)
+              </button>
+              <button id="btn-glosario-definiciones" onclick="window.app.setGlossaryView('definiciones')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                📘 Con Definiciones Completas
+              </button>
+            </div>
+
+            <!-- Contenido Palabras (Sin Definiciones) -->
+            <div id="glosario-view-palabras" class="space-y-2">
+              <p class="text-xs text-slate-500 italic">
+                Escribe estas 8 palabras oficiales en tu cuaderno para investigar o formular su significado en clase:
+              </p>
+              <ol class="space-y-1.5 text-xs font-bold text-slate-800 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 list-decimal list-inside">
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Huerto escolar</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Cultivo</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Alimento</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Nutrición</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Nutriente</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Valor nutricional</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Salud</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Cosecha</li>
+              </ol>
+            </div>
+
+            <!-- Contenido Con Definiciones -->
+            <div id="glosario-view-definiciones" class="space-y-2.5 hidden">
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-emerald-800 block mb-0.5">1. Huerto escolar:</strong>
+                <p class="text-slate-600">Espacio de la escuela donde sembramos y cuidamos plantas para aprender y cosechar alimentos nutritivos.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-emerald-800 block mb-0.5">2. Cultivo:</strong>
+                <p class="text-slate-600">Planta sembrada y cuidada con cariño en la tierra para obtener frutos, hojas o semillas.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-emerald-800 block mb-0.5">3. Alimento:</strong>
+                <p class="text-slate-600">Comida natural que consumimos diariamente para brindarle energía y nutrientes esenciales a todo nuestro cuerpo.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-emerald-800 block mb-0.5">4. Nutrición:</strong>
+                <p class="text-slate-600">Proceso mediante el cual nuestro cuerpo utiliza los nutrientes de los alimentos para crecer sano.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-emerald-800 block mb-0.5">5. Nutriente:</strong>
+                <p class="text-slate-600">Sustancia vital presente en los alimentos que el cuerpo aprovecha para funcionar, defenderse y desarrollarse.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-emerald-800 block mb-0.5">6. Valor nutricional:</strong>
+                <p class="text-slate-600">Información sobre la cantidad de vitaminas, minerales y energía que cada alimento aporta al cuerpo.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-emerald-800 block mb-0.5">7. Salud:</strong>
+                <p class="text-slate-600">Estado de completo bienestar físico y mental que nos permite jugar, estudiar y vivir felices.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-emerald-800 block mb-0.5">8. Cosecha:</strong>
+                <p class="text-slate-600">Recolección cuidadosa de los frutos y vegetales maduros producidos con esmero en nuestro huerto escolar.</p>
+              </div>
+            </div>
+
+            <!-- RÚBRICA OFICIAL VOCABULARIO ILUSTRADO -->
+            <div class="space-y-2 pt-2 border-t border-slate-200">
+              <h4 class="text-sm font-black text-slate-900">Rúbrica Oficial: Vocabulario Ilustrado</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-emerald-800">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Definiciones</td>
+                      <td class="p-2.5 text-slate-600">Precisas, completas y redactadas con sus propias palabras.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Cumplimiento en Clase</td>
+                      <td class="p-2.5 text-slate-600">Trabajo realizado íntegramente durante la sesión de clase.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Ilustración</td>
+                      <td class="p-2.5 text-slate-600">Cada término cuenta con ilustración creativa y pertinente.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Caligrafía y Orden</td>
+                      <td class="p-2.5 text-slate-600">Letra impecable y términos ordenados alfabéticamente.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Ortografía</td>
+                      <td class="p-2.5 text-slate-600">Sin errores ortográficos, de puntuación ni acentuación.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          `;
+        }
         footerHtml = `
           <button onclick="window.app.closeActivityModal()" class="w-full py-2.5 px-4 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold hover:bg-slate-300 transition-colors">
             Cerrar
           </button>
         `;
       } else if (isLeccion) {
-        // LECCIÓN, CONCEPTUAL Y MENTAL - LECCIÓN DE 3ER GRADO
-        bodyHtml = `
-          <div class="bg-purple-50 border border-purple-200 rounded-2xl p-4 text-purple-950">
-            <h4 class="text-sm font-black text-purple-900 uppercase tracking-wide mb-1 flex items-center gap-2">
-              <span>🌽</span> Lección: El Huerto Escolar, Salud y Nutrición
-            </h4>
-            <p class="text-xs leading-relaxed text-purple-800">
-              Texto didáctico completo para el cuaderno, organizadores visuales y rúbricas oficiales de evaluación.
-            </p>
-          </div>
-
-          <div class="space-y-3">
-            <h4 class="text-sm font-black text-slate-900 border-b pb-1">1. Lección para el Cuaderno (Tablero)</h4>
-            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-3">
-              <div>
-                <h5 class="text-sm font-black text-emerald-950 mb-1 flex items-center gap-1.5">
-                  <span>🌽</span> El huerto escolar, la salud y la nutrición
-                </h5>
-                <p class="leading-relaxed">
-                  El <strong>huerto escolar</strong> es un espacio donde cultivamos plantas que pueden producir alimentos. También es un lugar donde aprendemos sobre agricultura y el cuidado de la naturaleza.
-                </p>
-                <p class="mt-2 leading-relaxed">
-                  En el huerto podemos cultivar plantas como <strong>maíz, frijol, tomate, pepino, ají, culantro y otras especies</strong>.
-                </p>
-              </div>
-
-              <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
-                <strong class="text-emerald-900 font-bold block">Importancia del huerto escolar:</strong>
-                <p class="text-slate-600">El huerto escolar es importante porque:</p>
-                <ul class="list-disc list-inside space-y-1 text-slate-600 pl-1">
-                  <li>Nos permite aprender a producir alimentos.</li>
-                  <li>Nos enseña a cuidar las plantas.</li>
-                  <li>Nos ayuda a conocer de dónde vienen algunos alimentos.</li>
-                  <li>Promueve el trabajo en equipo.</li>
-                  <li>Favorece el cuidado del ambiente.</li>
-                </ul>
-              </div>
-
-              <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
-                <strong class="text-blue-900 font-bold block">Salud y nutrición:</strong>
-                <p class="text-slate-600 leading-relaxed">
-                  La <strong>salud</strong> es el bienestar de nuestro cuerpo y está relacionada con buenos hábitos, entre ellos una alimentación adecuada.
-                </p>
-                <p class="text-slate-600 leading-relaxed">
-                  La <strong>nutrición</strong> es la manera en que nuestro cuerpo obtiene y utiliza los nutrientes de los alimentos.
-                </p>
-                <p class="text-slate-600 leading-relaxed">
-                  El <strong>valor nutricional</strong> indica qué nutrientes y energía aporta un alimento.
-                </p>
-                <p class="text-slate-600 leading-relaxed">
-                  Por eso es importante consumir alimentos variados y aprender a reconocer los productos que podemos obtener de las plantas.
-                </p>
-              </div>
-
-              <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
-                <strong class="text-purple-900 font-bold block">Del huerto a nuestra alimentación:</strong>
-                <div class="p-2.5 bg-amber-50 rounded-lg border border-amber-200 font-bold text-amber-900 text-center">
-                  Planta • Alimento • Nutrientes • Cuerpo
-                </div>
-              </div>
-
-              <div class="p-3 bg-emerald-100/70 border border-emerald-300 rounded-xl text-emerald-950 font-bold">
-                <span class="block text-[11px] uppercase tracking-wider text-emerald-800 font-black mb-0.5">🌱 Idea principal:</span>
-                El huerto escolar nos ayuda a aprender cómo se producen alimentos y a comprender su importancia para la alimentación, la nutrición y la salud.
-              </div>
-
-              <!-- Requisito de Ilustración en el Cuaderno -->
-              <div class="p-3 bg-amber-50 rounded-xl border border-amber-300 text-xs text-amber-950 font-semibold space-y-1">
-                <span class="font-bold flex items-center gap-1.5 text-amber-900">
-                  <span>🖼️</span> Ilustración Obligatoria en el Cuaderno:
-                </span>
-                <p>
-                  Al copiar esta lección en el cuaderno, se debe ilustrar obligatoriamente con recortes, figuras o dibujos coloreados alusivos al contenido (el huerto escolar, plantas cultivadas, hortalizas, siembra, salud y nutrición).
-                </p>
-              </div>
-            </div>
-
-            <!-- Metodología de Elaboración de los Mapas -->
-            <h4 class="text-sm font-black text-slate-900 border-b pb-1">2. Metodología de Elaboración de los Mapas (Tarjetitas y Montaje)</h4>
-            <div class="bg-indigo-50/70 p-4 rounded-2xl border border-indigo-200 text-xs text-indigo-950 space-y-2">
-              <p class="font-bold text-indigo-900">
-                Instrucciones para elaborar el Mapa Conceptual y el Mapa Mental:
+        if (grade === '4') {
+          // LECCIÓN 4.3.1, CONCEPTUAL Y MENTAL - 4TO GRADO
+          bodyHtml = `
+            <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4 text-sky-950">
+              <h4 class="text-sm font-black text-sky-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+                <span>🌽</span> Lección 4.3.1: Beneficios e Importancia del Huerto Escolar
+              </h4>
+              <p class="text-xs leading-relaxed text-sky-800">
+                Texto didáctico completo para el cuaderno, organizadores visuales y rúbricas oficiales de evaluación.
               </p>
-              <div class="space-y-1.5 pl-1">
-                <p>
-                  <strong>• 1. Confección de tarjetitas:</strong> Recortar pequeñas tarjetas en papel (blanco o de colores) y escribir a mano en cada una de ellas las distintas partes que componen el mapa: el título principal (ej. <em>"HUERTO ESCOLAR"</em>), los conectores o enlaces (<em>"Produce"</em>, <em>"Permite aprender"</em>, <em>"Promueve"</em>, <em>"Se relaciona con"</em>) y cada uno de los conceptos secundarios y ramificaciones.
-                </p>
-                <p>
-                  <strong>• 2. Armado sobre página blanca:</strong> Ordenar y pegar las tarjetitas sobre una <strong>página blanca limpia</strong>, siguiendo la estructura y organización espacial del mapa borrador que el maestro dibujó y explicó en el tablero durante la clase.
-                </p>
-                <p>
-                  <strong>• 3. Trazado y colores jerárquicos:</strong> Trazar las líneas o flechas de enlace y aplicar colores distintos para cada nivel jerárquico del esquema.
-                </p>
-                <p>
-                  <strong>• 4. Pegado final en el cuaderno:</strong> Una vez terminado el mapa en la página blanca, pegar esa página completa de forma ordenada y limpia en el cuaderno sobre el mapa borrador de clase.
-                </p>
-              </div>
             </div>
 
-            <h4 class="text-sm font-black text-slate-900 border-b pb-1">3. Rúbrica Oficial: Lección Escrita y Montaje</h4>
-            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
-              <table class="w-full text-xs text-left border-collapse">
-                <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
-                  <tr>
-                    <th class="p-2.5 w-16">Peso</th>
-                    <th class="p-2.5">Criterio Oficial</th>
-                    <th class="p-2.5 text-emerald-800">5 - Excelente</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 bg-white">
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">30%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Calidad del Contenido Copiado</td>
-                    <td class="p-2.5 text-slate-600">Transcribe toda la lección de forma impecable, sin errores y letra clara.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">30%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Creatividad y Precisión</td>
-                    <td class="p-2.5 text-slate-600">Figuras originales, de alta precisión y totalmente integradas al tema.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">20%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Orden y Limpieza</td>
-                    <td class="p-2.5 text-slate-600">Montaje impecable, perfectamente alineado y sin rastro de pegamento.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">20%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Cumplimiento de Tareas</td>
-                    <td class="p-2.5 text-slate-600">Realiza todas las fases del proceso de forma ejemplar y puntual.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h4 class="text-sm font-black text-slate-900 border-b pb-1">4. Rúbrica Oficial: Mapa Conceptual</h4>
-            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
-              <table class="w-full text-xs text-left border-collapse">
-                <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
-                  <tr>
-                    <th class="p-2.5 w-16">Peso</th>
-                    <th class="p-2.5">Criterio Oficial</th>
-                    <th class="p-2.5 text-emerald-800">5 - Excelente</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 bg-white">
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">40%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Precisión del Contenido</td>
-                    <td class="p-2.5 text-slate-600">Conceptos precisos y ubicados exactamente según el diagrama.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">20%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Uso de Colores Jerárquicos</td>
-                    <td class="p-2.5 text-slate-600">Colores distintos y consistentes para cada nivel jerárquico.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">20%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Organización Espacial</td>
-                    <td class="p-2.5 text-slate-600">Distribución lógica, equilibrada y perfectamente ordenada.</td>
-                  </tr>
-                  <tr>
-                    <td class="p-2.5 font-bold text-slate-600">20%</td>
-                    <td class="p-2.5 font-bold text-slate-900">Presentación y Limpieza</td>
-                    <td class="p-2.5 text-slate-600">Presentación impecable, pegado perfecto sin residuos.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- ORGANIZADORES GRÁFICOS OFICIALES DE TERCER GRADO -->
-            <h4 class="text-sm font-black text-slate-900 border-b pb-1">5. Organizadores Gráficos (3.° Grado)</h4>
-            <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold mb-2">
-              <button id="btn-org-conceptual" onclick="window.app.setOrganizerView('conceptual')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
-                🗺️ Mapa Conceptual
-              </button>
-              <button id="btn-org-mental" onclick="window.app.setOrganizerView('mental')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
-                🧠 Mapa Mental
-              </button>
-            </div>
-
-            <!-- Vista 1: Mapa Conceptual de 3er Grado -->
-            <div id="org-view-conceptual" class="space-y-2">
-              <div class="p-4 bg-emerald-50/60 rounded-2xl border border-emerald-200 text-xs space-y-3">
-                <div class="text-center font-bold text-slate-900">
-                  <span class="inline-block px-4 py-1.5 bg-emerald-800 text-white rounded-xl shadow-xs text-xs font-black">🌽 HUERTO ESCOLAR</span>
+            <div class="space-y-3">
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">1. Lección para el Cuaderno (Tablero)</h4>
+              <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-3">
+                <div>
+                  <h5 class="text-sm font-black text-sky-950 mb-1 flex items-center gap-1.5">
+                    <span>🌽</span> Beneficios e importancia del huerto escolar
+                  </h5>
+                  <p class="leading-relaxed">
+                    El <strong>huerto escolar</strong> es un espacio educativo donde cultivamos plantas que pueden producir alimentos y donde aprendemos sobre agricultura y naturaleza.
+                  </p>
+                  <p class="mt-2 leading-relaxed">
+                    El huerto proporciona diferentes beneficios:
+                  </p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
-                  <div class="p-2.5 bg-white rounded-xl border border-emerald-300 shadow-2xs text-center space-y-1">
-                    <strong class="text-emerald-900 block font-bold">🌱 Produce</strong>
-                    <span class="text-slate-700 block font-semibold">Alimentos</span>
-                    <span class="text-amber-800 font-bold block bg-amber-50 rounded px-1 py-0.5">Nutrientes</span>
-                  </div>
-                  <div class="p-2.5 bg-white rounded-xl border border-blue-300 shadow-2xs text-center space-y-1">
-                    <strong class="text-blue-900 block font-bold">📚 Permite aprender</strong>
-                    <span class="text-slate-600 block">• Agricultura</span>
-                    <span class="text-slate-600 block">• Plantas</span>
-                    <span class="text-slate-600 block">• Ambiente</span>
-                  </div>
-                  <div class="p-2.5 bg-white rounded-xl border border-purple-300 shadow-2xs text-center space-y-1">
-                    <strong class="text-purple-900 block font-bold">🤝 Promueve</strong>
-                    <span class="text-slate-600 block">• Responsabilidad</span>
-                    <span class="text-slate-600 block">• Trabajo en equipo</span>
-                  </div>
-                  <div class="p-2.5 bg-white rounded-xl border border-rose-300 shadow-2xs text-center space-y-1">
-                    <strong class="text-rose-900 block font-bold">❤️ Se relaciona con</strong>
-                    <span class="text-slate-600 block">• Salud</span>
-                    <span class="text-slate-600 block">• Nutrición</span>
-                  </div>
-                </div>
-                <p class="text-[11px] text-center text-slate-500">
-                  Conexión directa: Alimentos aportan nutrientes que benefician la salud y la nutrición.
-                </p>
-              </div>
-            </div>
 
-            <!-- Vista 2: Mapa Mental de 3er Grado -->
-            <div id="org-view-mental" class="space-y-2 hidden">
-              <div class="p-4 bg-indigo-50/60 rounded-2xl border border-indigo-200 text-xs space-y-3">
-                <div class="text-center font-bold text-slate-900">
-                  <span class="inline-block px-4 py-1.5 bg-indigo-800 text-white rounded-full text-xs shadow-xs font-black">🌽 Huerto Escolar (Lluvia de Ideas)</span>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-amber-900 font-bold block">1. Beneficios económicos:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    Los beneficios económicos se relacionan con el <strong>valor y ahorro</strong> que puede representar producir algunos alimentos. Por ejemplo, si cultivamos determinados productos podemos disminuir la necesidad de comprarlos y comprender el valor del trabajo agrícola.
+                  </p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
-                  <div class="p-2.5 bg-white rounded-xl border border-emerald-300 shadow-2xs">
-                    <strong class="text-emerald-900 block font-bold mb-1">🌽 Cultivos</strong>
-                    <span class="text-slate-700 block font-semibold">• Maíz</span>
-                    <span class="text-slate-700 block font-semibold">• Tomate</span>
-                    <span class="text-slate-700 block font-semibold">• Pepino</span>
-                    <span class="text-slate-700 block font-semibold">• Frijol</span>
-                  </div>
-                  <div class="p-2.5 bg-white rounded-xl border border-blue-300 shadow-2xs">
-                    <strong class="text-blue-900 block font-bold mb-1">📖 Aprendizaje</strong>
-                    <span class="text-slate-700 block font-semibold">• Siembra</span>
-                    <span class="text-slate-700 block font-semibold">• Cuidado</span>
-                    <span class="text-slate-700 block font-semibold">• Cosecha</span>
-                  </div>
-                  <div class="p-2.5 bg-white rounded-xl border border-amber-300 shadow-2xs">
-                    <strong class="text-amber-900 block font-bold mb-1">🍽️ Alimentación</strong>
-                    <span class="text-slate-700 block font-semibold">• Alimentos</span>
-                    <span class="text-slate-700 block font-semibold">• Nutrientes</span>
-                    <span class="text-slate-700 block font-semibold">• Salud</span>
-                  </div>
-                  <div class="p-2.5 bg-white rounded-xl border border-purple-300 shadow-2xs">
-                    <strong class="text-purple-900 block font-bold mb-1">🤝 Valores</strong>
-                    <span class="text-slate-700 block font-semibold">• Responsabilidad</span>
-                    <span class="text-slate-700 block font-semibold">• Cooperación</span>
-                  </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-emerald-900 font-bold block">2. Beneficios nutritivos:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    Los beneficios nutritivos se relacionan con los alimentos que podemos producir en el huerto. Estos alimentos pueden formar parte de una <strong>alimentación variada</strong> y nos permiten aprender sobre nutrición.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-indigo-900 font-bold block">3. Beneficios comunitarios:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    El huerto beneficia a la comunidad educativa porque:
+                  </p>
+                  <ul class="list-disc list-inside space-y-1 text-slate-600 pl-1">
+                    <li>Promueve el trabajo en equipo.</li>
+                    <li>Permite compartir responsabilidades.</li>
+                    <li>Sirve como espacio para aprender.</li>
+                    <li>Favorece el cuidado de la escuela y la naturaleza.</li>
+                  </ul>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-blue-900 font-bold block">Importancia del huerto escolar:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    El huerto escolar es importante porque nos ayuda a:
+                  </p>
+                  <ul class="list-disc list-inside space-y-1 text-slate-600 pl-1">
+                    <li>Aprender agricultura.</li>
+                    <li>Producir alimentos.</li>
+                    <li>Comprender la nutrición.</li>
+                    <li>Trabajar cooperativamente.</li>
+                    <li>Cuidar las plantas y el ambiente.</li>
+                    <li>Valorar el esfuerzo necesario para producir alimentos.</li>
+                  </ul>
+                </div>
+
+                <div class="p-3 bg-sky-100/70 border border-sky-300 rounded-xl text-sky-950 font-bold">
+                  <span class="block text-[11px] uppercase tracking-wider text-sky-800 font-black mb-0.5">🌱 Idea principal:</span>
+                  El huerto escolar proporciona beneficios económicos, nutritivos y comunitarios y es un espacio importante para aprender, producir alimentos y trabajar en equipo.
+                </div>
+
+                <!-- Requisito de Ilustración en el Cuaderno -->
+                <div class="p-3 bg-amber-50 rounded-xl border border-amber-300 text-xs text-amber-950 font-semibold space-y-1">
+                  <span class="font-bold flex items-center gap-1.5 text-amber-900">
+                    <span>🖼️</span> Ilustración Obligatoria en el Cuaderno:
+                  </span>
+                  <p>
+                    Al copiar esta lección en el cuaderno, se debe ilustrar obligatoriamente con recortes, figuras o dibujos coloreados alusivos a los tres beneficios del huerto (ahorro económico, alimentación nutritiva y trabajo cooperativo).
+                  </p>
                 </div>
               </div>
+
+              <!-- Metodología de Elaboración de los Mapas -->
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">2. Metodología de Elaboración de los Mapas (Tarjetitas y Montaje)</h4>
+              <div class="bg-indigo-50/70 p-4 rounded-2xl border border-indigo-200 text-xs text-indigo-950 space-y-2">
+                <p class="font-bold text-indigo-900">
+                  Instrucciones para elaborar el Mapa Conceptual y el Mapa Mental:
+                </p>
+                <div class="space-y-1.5 pl-1">
+                  <p>
+                    <strong>• 1. Confección de tarjetitas:</strong> Recortar pequeñas tarjetas en papel (blanco o de colores) y escribir a mano en cada una de ellas las distintas partes que componen el mapa: el título principal (<em>"HUERTO ESCOLAR"</em>), los bloques principales (<em>"Beneficios"</em>, <em>"Importancia"</em>), las categorías (<em>"Económicos"</em>, <em>"Nutritivos"</em>, <em>"Comunitarios"</em>) y cada uno de los conceptos secundarios y ramificaciones.
+                  </p>
+                  <p>
+                    <strong>• 2. Armado sobre página blanca:</strong> Ordenar y pegar las tarjetitas sobre una <strong>página blanca limpia</strong>, siguiendo la estructura y organización espacial del mapa borrador que el maestro dibujó y explicó en el tablero durante la clase.
+                  </p>
+                  <p>
+                    <strong>• 3. Trazado y colores jerárquicos:</strong> Trazar las líneas o flechas de enlace y aplicar colores distintos para cada nivel jerárquico del esquema.
+                  </p>
+                  <p>
+                    <strong>• 4. Pegado final en el cuaderno:</strong> Una vez terminado el mapa en la página blanca, pegar esa página completa de forma ordenada y limpia en el cuaderno sobre el mapa borrador de clase.
+                  </p>
+                </div>
+              </div>
+
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">3. Rúbrica Oficial: Lección Escrita y Montaje</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-sky-800">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Calidad del Contenido Copiado</td>
+                      <td class="p-2.5 text-slate-600">Transcribe toda la lección de forma impecable, sin errores y letra clara.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Creatividad y Precisión</td>
+                      <td class="p-2.5 text-slate-600">Figuras originales, de alta precisión y totalmente integradas al tema.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Orden y Limpieza</td>
+                      <td class="p-2.5 text-slate-600">Montaje impecable, perfectamente alineado y sin rastro de pegamento.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Cumplimiento de Tareas</td>
+                      <td class="p-2.5 text-slate-600">Realiza todas las fases del proceso de forma ejemplar y puntual.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">4. Rúbrica Oficial: Mapa Conceptual</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-sky-800">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">40%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Precisión del Contenido</td>
+                      <td class="p-2.5 text-slate-600">Conceptos precisos y ubicados exactamente según el diagrama.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Uso de Colores Jerárquicos</td>
+                      <td class="p-2.5 text-slate-600">Colores distintos y consistentes para cada nivel jerárquico.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Organización Espacial</td>
+                      <td class="p-2.5 text-slate-600">Distribución lógica, equilibrada y perfectamente ordenada.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Presentación y Limpieza</td>
+                      <td class="p-2.5 text-slate-600">Presentación impecable, pegado perfecto sin residuos.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- ORGANIZADORES GRÁFICOS OFICIALES DE CUARTO GRADO -->
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">5. Organizadores Gráficos (4.° Grado)</h4>
+              <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold mb-2">
+                <button id="btn-org-conceptual" onclick="window.app.setOrganizerView('conceptual')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
+                  🗺️ Mapa Conceptual
+                </button>
+                <button id="btn-org-mental" onclick="window.app.setOrganizerView('mental')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                  🧠 Mapa Mental
+                </button>
+              </div>
+
+              <!-- Vista 1: Mapa Conceptual de 4to Grado -->
+              <div id="org-view-conceptual" class="space-y-2">
+                <div class="p-4 bg-sky-50/60 rounded-2xl border border-sky-200 text-xs space-y-3">
+                  <div class="text-center font-bold text-slate-900">
+                    <span class="inline-block px-4 py-1.5 bg-sky-800 text-white rounded-xl shadow-xs text-xs font-black">🌽 HUERTO ESCOLAR</span>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
+                    <div class="p-3 bg-white rounded-xl border border-sky-300 shadow-2xs space-y-2">
+                      <div class="text-center font-black text-sky-900 border-b border-sky-100 pb-1">🌟 1. BENEFICIOS</div>
+                      <div class="grid grid-cols-3 gap-1.5 text-center">
+                        <div class="p-1.5 bg-amber-50 rounded-lg border border-amber-200">
+                          <strong class="text-amber-900 block font-bold text-[10px]">💰 Económicos</strong>
+                          <span class="text-slate-600 block text-[9px] mt-0.5">• Ahorro</span>
+                          <span class="text-slate-600 block text-[9px]">• Valor prod.</span>
+                        </div>
+                        <div class="p-1.5 bg-emerald-50 rounded-lg border border-emerald-200">
+                          <strong class="text-emerald-900 block font-bold text-[10px]">🥗 Nutritivos</strong>
+                          <span class="text-slate-600 block text-[9px] mt-0.5">• Alimentos</span>
+                          <span class="text-slate-600 block text-[9px]">• Nutrición</span>
+                        </div>
+                        <div class="p-1.5 bg-indigo-50 rounded-lg border border-indigo-200">
+                          <strong class="text-indigo-900 block font-bold text-[10px]">👥 Comunitarios</strong>
+                          <span class="text-slate-600 block text-[9px] mt-0.5">• Equipo</span>
+                          <span class="text-slate-600 block text-[9px]">• Aprendizaje</span>
+                          <span class="text-slate-600 block text-[9px]">• Responsab.</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="p-3 bg-white rounded-xl border border-blue-300 shadow-2xs space-y-2">
+                      <div class="text-center font-black text-blue-900 border-b border-blue-100 pb-1">🎯 2. IMPORTANCIA</div>
+                      <div class="grid grid-cols-3 gap-1.5 text-center">
+                        <div class="p-1.5 bg-slate-50 rounded-lg border border-slate-200">
+                          <strong class="text-slate-800 block font-bold text-[10px]">🌱 Cultivar</strong>
+                          <span class="text-slate-600 block text-[9px] mt-0.5">Producción</span>
+                        </div>
+                        <div class="p-1.5 bg-slate-50 rounded-lg border border-slate-200">
+                          <strong class="text-slate-800 block font-bold text-[10px]">📚 Aprender</strong>
+                          <span class="text-slate-600 block text-[9px] mt-0.5">Agricultura</span>
+                        </div>
+                        <div class="p-1.5 bg-slate-50 rounded-lg border border-slate-200">
+                          <strong class="text-slate-800 block font-bold text-[10px]">🌿 Cuidar</strong>
+                          <span class="text-slate-600 block text-[9px] mt-0.5">Naturaleza</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-[11px] text-center text-slate-500">
+                    Estructura conceptual oficial: 3 tipos de beneficios + 3 ejes de importancia educativa.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Vista 2: Mapa Mental de 4to Grado (Lluvia de Ideas) -->
+              <div id="org-view-mental" class="space-y-2 hidden">
+                <div class="p-4 bg-indigo-50/60 rounded-2xl border border-indigo-200 text-xs space-y-3">
+                  <div class="text-center font-bold text-slate-900">
+                    <span class="inline-block px-4 py-1.5 bg-indigo-900 text-white rounded-full text-xs shadow-xs font-black">🌱 Beneficios del Huerto (Lluvia de Ideas)</span>
+                  </div>
+                  <p class="text-[11px] text-center text-indigo-900 font-semibold italic">
+                    ¿Qué obtenemos de un huerto escolar además de alimentos?
+                  </p>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
+                    <div class="p-2.5 bg-white rounded-xl border border-amber-300 shadow-2xs">
+                      <strong class="text-amber-900 block font-bold mb-1">💰 Económicos</strong>
+                      <span class="text-slate-700 block font-semibold">• Ahorro familiar</span>
+                      <span class="text-slate-700 block font-semibold">• Valor de productos</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-emerald-300 shadow-2xs">
+                      <strong class="text-emerald-900 block font-bold mb-1">🥗 Nutritivos</strong>
+                      <span class="text-slate-700 block font-semibold">• Alimentos frescos</span>
+                      <span class="text-slate-700 block font-semibold">• Nutrición variada</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-indigo-300 shadow-2xs">
+                      <strong class="text-indigo-900 block font-bold mb-1">👥 Comunitarios</strong>
+                      <span class="text-slate-700 block font-semibold">• Cooperación</span>
+                      <span class="text-slate-700 block font-semibold">• Aprendizaje mutuo</span>
+                      <span class="text-slate-700 block font-semibold">• Responsabilidad</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-purple-300 shadow-2xs">
+                      <strong class="text-purple-900 block font-bold mb-1">🌿 Ambientales</strong>
+                      <span class="text-slate-700 block font-semibold">• Cuidado de plantas</span>
+                      <span class="text-slate-700 block font-semibold">• Trabajo cooperativo</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          `;
+        } else {
+          // LECCIÓN, CONCEPTUAL Y MENTAL - LECCIÓN DE 3ER GRADO
+          bodyHtml = `
+            <div class="bg-purple-50 border border-purple-200 rounded-2xl p-4 text-purple-950">
+              <h4 class="text-sm font-black text-purple-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+                <span>🌽</span> Lección: El Huerto Escolar, Salud y Nutrición
+              </h4>
+              <p class="text-xs leading-relaxed text-purple-800">
+                Texto didáctico completo para el cuaderno, organizadores visuales y rúbricas oficiales de evaluación.
+              </p>
             </div>
 
-          </div>
-        `;
+            <div class="space-y-3">
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">1. Lección para el Cuaderno (Tablero)</h4>
+              <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-3">
+                <div>
+                  <h5 class="text-sm font-black text-emerald-950 mb-1 flex items-center gap-1.5">
+                    <span>🌽</span> El huerto escolar, la salud y la nutrición
+                  </h5>
+                  <p class="leading-relaxed">
+                    El <strong>huerto escolar</strong> es un espacio donde cultivamos plantas que pueden producir alimentos. También es un lugar donde aprendemos sobre agricultura y el cuidado de la naturaleza.
+                  </p>
+                  <p class="mt-2 leading-relaxed">
+                    En el huerto podemos cultivar plantas como <strong>maíz, frijol, tomate, pepino, ají, culantro y otras especies</strong>.
+                  </p>
+                </div>
 
-        const mapConceptualUrl = grade === '3' ? 'recursos/tercero-mapa-conceptual.html' : 'recursos/metodos-mapa-conceptual.html';
-        const mapMentalUrl = grade === '3' ? 'recursos/tercero-mapa-mental.html' : 'recursos/metodos-mapa-mental.html';
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-emerald-900 font-bold block">Importancia del huerto escolar:</strong>
+                  <p class="text-slate-600">El huerto escolar es importante porque:</p>
+                  <ul class="list-disc list-inside space-y-1 text-slate-600 pl-1">
+                    <li>Nos permite aprender a producir alimentos.</li>
+                    <li>Nos enseña a cuidar las plantas.</li>
+                    <li>Nos ayuda a conocer de dónde vienen algunos alimentos.</li>
+                    <li>Promueve el trabajo en equipo.</li>
+                    <li>Favorece el cuidado del ambiente.</li>
+                  </ul>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-blue-900 font-bold block">Salud y nutrición:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    La <strong>salud</strong> es el bienestar de nuestro cuerpo y está relacionada con buenos hábitos, entre ellos una alimentación adecuada.
+                  </p>
+                  <p class="text-slate-600 leading-relaxed">
+                    La <strong>nutrición</strong> es la manera en que nuestro cuerpo obtiene y utiliza los nutrientes de los alimentos.
+                  </p>
+                  <p class="text-slate-600 leading-relaxed">
+                    El <strong>valor nutricional</strong> indica qué nutrientes y energía aporta un alimento.
+                  </p>
+                  <p class="text-slate-600 leading-relaxed">
+                    Por eso es importante consumir alimentos variados y aprender a reconocer los productos que podemos obtener de las plantas.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1">
+                  <strong class="text-purple-900 font-bold block">Del huerto a nuestra alimentación:</strong>
+                  <div class="p-2.5 bg-amber-50 rounded-lg border border-amber-200 font-bold text-amber-900 text-center">
+                    Planta • Alimento • Nutrientes • Cuerpo
+                  </div>
+                </div>
+
+                <div class="p-3 bg-emerald-100/70 border border-emerald-300 rounded-xl text-emerald-950 font-bold">
+                  <span class="block text-[11px] uppercase tracking-wider text-emerald-800 font-black mb-0.5">🌱 Idea principal:</span>
+                  El huerto escolar nos ayuda a aprender cómo se producen alimentos y a comprender su importancia para la alimentación, la nutrición y la salud.
+                </div>
+
+                <!-- Requisito de Ilustración en el Cuaderno -->
+                <div class="p-3 bg-amber-50 rounded-xl border border-amber-300 text-xs text-amber-950 font-semibold space-y-1">
+                  <span class="font-bold flex items-center gap-1.5 text-amber-900">
+                    <span>🖼️</span> Ilustración Obligatoria en el Cuaderno:
+                  </span>
+                  <p>
+                    Al copiar esta lección en el cuaderno, se debe ilustrar obligatoriamente con recortes, figuras o dibujos coloreados alusivos al contenido (el huerto escolar, plantas cultivadas, hortalizas, siembra, salud y nutrición).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Metodología de Elaboración de los Mapas -->
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">2. Metodología de Elaboración de los Mapas (Tarjetitas y Montaje)</h4>
+              <div class="bg-indigo-50/70 p-4 rounded-2xl border border-indigo-200 text-xs text-indigo-950 space-y-2">
+                <p class="font-bold text-indigo-900">
+                  Instrucciones para elaborar el Mapa Conceptual y el Mapa Mental:
+                </p>
+                <div class="space-y-1.5 pl-1">
+                  <p>
+                    <strong>• 1. Confección de tarjetitas:</strong> Recortar pequeñas tarjetas en papel (blanco o de colores) y escribir a mano en cada una de ellas las distintas partes que componen el mapa: el título principal (ej. <em>"HUERTO ESCOLAR"</em>), los conectores o enlaces (<em>"Produce"</em>, <em>"Permite aprender"</em>, <em>"Promueve"</em>, <em>"Se relaciona con"</em>) y cada uno de los conceptos secundarios y ramificaciones.
+                  </p>
+                  <p>
+                    <strong>• 2. Armado sobre página blanca:</strong> Ordenar y pegar las tarjetitas sobre una <strong>página blanca limpia</strong>, siguiendo la estructura y organización espacial del mapa borrador que el maestro dibujó y explicó en el tablero durante la clase.
+                  </p>
+                  <p>
+                    <strong>• 3. Trazado y colores jerárquicos:</strong> Trazar las líneas o flechas de enlace y aplicar colores distintos para cada nivel jerárquico del esquema.
+                  </p>
+                  <p>
+                    <strong>• 4. Pegado final en el cuaderno:</strong> Una vez terminado el mapa en la página blanca, pegar esa página completa de forma ordenada y limpia en el cuaderno sobre el mapa borrador de clase.
+                  </p>
+                </div>
+              </div>
+
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">3. Rúbrica Oficial: Lección Escrita y Montaje</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-emerald-800">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Calidad del Contenido Copiado</td>
+                      <td class="p-2.5 text-slate-600">Transcribe toda la lección de forma impecable, sin errores y letra clara.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Creatividad y Precisión</td>
+                      <td class="p-2.5 text-slate-600">Figuras originales, de alta precisión y totalmente integradas al tema.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Orden y Limpieza</td>
+                      <td class="p-2.5 text-slate-600">Montaje impecable, perfectamente alineado y sin rastro de pegamento.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Cumplimiento de Tareas</td>
+                      <td class="p-2.5 text-slate-600">Realiza todas las fases del proceso de forma ejemplar y puntual.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">4. Rúbrica Oficial: Mapa Conceptual</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-emerald-800">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">40%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Precisión del Contenido</td>
+                      <td class="p-2.5 text-slate-600">Conceptos precisos y ubicados exactamente según el diagrama.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Uso de Colores Jerárquicos</td>
+                      <td class="p-2.5 text-slate-600">Colores distintos y consistentes para cada nivel jerárquico.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Organización Espacial</td>
+                      <td class="p-2.5 text-slate-600">Distribución lógica, equilibrada y perfectamente ordenada.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Presentación y Limpieza</td>
+                      <td class="p-2.5 text-slate-600">Presentación impecable, pegado perfecto sin residuos.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- ORGANIZADORES GRÁFICOS OFICIALES DE TERCER GRADO -->
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">5. Organizadores Gráficos (3.° Grado)</h4>
+              <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold mb-2">
+                <button id="btn-org-conceptual" onclick="window.app.setOrganizerView('conceptual')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
+                  🗺️ Mapa Conceptual
+                </button>
+                <button id="btn-org-mental" onclick="window.app.setOrganizerView('mental')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                  🧠 Mapa Mental
+                </button>
+              </div>
+
+              <!-- Vista 1: Mapa Conceptual de 3er Grado -->
+              <div id="org-view-conceptual" class="space-y-2">
+                <div class="p-4 bg-emerald-50/60 rounded-2xl border border-emerald-200 text-xs space-y-3">
+                  <div class="text-center font-bold text-slate-900">
+                    <span class="inline-block px-4 py-1.5 bg-emerald-800 text-white rounded-xl shadow-xs text-xs font-black">🌽 HUERTO ESCOLAR</span>
+                  </div>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
+                    <div class="p-2.5 bg-white rounded-xl border border-emerald-300 shadow-2xs text-center space-y-1">
+                      <strong class="text-emerald-900 block font-bold">🌱 Produce</strong>
+                      <span class="text-slate-700 block font-semibold">Alimentos</span>
+                      <span class="text-amber-800 font-bold block bg-amber-50 rounded px-1 py-0.5">Nutrientes</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-blue-300 shadow-2xs text-center space-y-1">
+                      <strong class="text-blue-900 block font-bold">📚 Permite aprender</strong>
+                      <span class="text-slate-600 block">• Agricultura</span>
+                      <span class="text-slate-600 block">• Plantas</span>
+                      <span class="text-slate-600 block">• Ambiente</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-purple-300 shadow-2xs text-center space-y-1">
+                      <strong class="text-purple-900 block font-bold">🤝 Promueve</strong>
+                      <span class="text-slate-600 block">• Responsabilidad</span>
+                      <span class="text-slate-600 block">• Trabajo en equipo</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-rose-300 shadow-2xs text-center space-y-1">
+                      <strong class="text-rose-900 block font-bold">❤️ Se relaciona con</strong>
+                      <span class="text-slate-600 block">• Salud</span>
+                      <span class="text-slate-600 block">• Nutrición</span>
+                    </div>
+                  </div>
+                  <p class="text-[11px] text-center text-slate-500">
+                    Conexión directa: Alimentos aportan nutrientes que benefician la salud y la nutrición.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Vista 2: Mapa Mental de 3er Grado -->
+              <div id="org-view-mental" class="space-y-2 hidden">
+                <div class="p-4 bg-indigo-50/60 rounded-2xl border border-indigo-200 text-xs space-y-3">
+                  <div class="text-center font-bold text-slate-900">
+                    <span class="inline-block px-4 py-1.5 bg-indigo-800 text-white rounded-full text-xs shadow-xs font-black">🌽 Huerto Escolar (Lluvia de Ideas)</span>
+                  </div>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
+                    <div class="p-2.5 bg-white rounded-xl border border-emerald-300 shadow-2xs">
+                      <strong class="text-emerald-900 block font-bold mb-1">🌽 Cultivos</strong>
+                      <span class="text-slate-700 block font-semibold">• Maíz</span>
+                      <span class="text-slate-700 block font-semibold">• Tomate</span>
+                      <span class="text-slate-700 block font-semibold">• Pepino</span>
+                      <span class="text-slate-700 block font-semibold">• Frijol</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-blue-300 shadow-2xs">
+                      <strong class="text-blue-900 block font-bold mb-1">📖 Aprendizaje</strong>
+                      <span class="text-slate-700 block font-semibold">• Siembra</span>
+                      <span class="text-slate-700 block font-semibold">• Cuidado</span>
+                      <span class="text-slate-700 block font-semibold">• Cosecha</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-amber-300 shadow-2xs">
+                      <strong class="text-amber-900 block font-bold mb-1">🍽️ Alimentación</strong>
+                      <span class="text-slate-700 block font-semibold">• Alimentos</span>
+                      <span class="text-slate-700 block font-semibold">• Nutrientes</span>
+                      <span class="text-slate-700 block font-semibold">• Salud</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-xl border border-purple-300 shadow-2xs">
+                      <strong class="text-purple-900 block font-bold mb-1">🤝 Valores</strong>
+                      <span class="text-slate-700 block font-semibold">• Responsabilidad</span>
+                      <span class="text-slate-700 block font-semibold">• Cooperación</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          `;
+        }
+
+        const mapConceptualUrl = grade === '3' ? 'recursos/tercero-mapa-conceptual.html'
+                               : grade === '4' ? 'recursos/cuarto-mapa-conceptual.html'
+                               : 'recursos/metodos-mapa-conceptual.html';
+        const mapMentalUrl = grade === '3' ? 'recursos/tercero-mapa-mental.html'
+                           : grade === '4' ? 'recursos/cuarto-mapa-mental.html'
+                           : 'recursos/metodos-mapa-mental.html';
+
+        const btnClass = grade === '4' ? 'bg-sky-700 hover:bg-sky-800' : 'bg-emerald-700 hover:bg-emerald-800';
 
         footerHtml = `
           <div class="flex flex-col sm:flex-row gap-2 w-full">
-            <a href="${mapConceptualUrl}" target="_blank" class="flex-1 py-2.5 px-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold text-center transition-colors">
+            <a href="${mapConceptualUrl}" target="_blank" class="flex-1 py-2.5 px-3 ${btnClass} text-white rounded-xl text-xs font-bold text-center transition-colors">
               🗺️ Ver Mapa Conceptual Completo
             </a>
             <a href="${mapMentalUrl}" target="_blank" class="flex-1 py-2.5 px-3 bg-indigo-700 hover:bg-indigo-800 text-white rounded-xl text-xs font-bold text-center transition-colors">
@@ -877,6 +1283,8 @@
                          : grade === '4' ? 'pruebas/cuarto_grado.html'
                          : grade === '5' ? 'pruebas/quinto_grado.html'
                          : 'pruebas/sexto_grado.html';
+        const leccionDesc = grade === '4' ? 'Lección 4.3.1: Beneficios e importancia del huerto escolar'
+                          : 'Lección 3.3.1: El huerto escolar, la salud y la nutrición';
 
         bodyHtml = `
           <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4 text-rose-950">
@@ -889,7 +1297,7 @@
               </span>
             </div>
             <p class="text-xs leading-relaxed text-rose-800">
-              Evaluación formativa y sumativa oficial vinculada con la Lección 3.3.1: El huerto escolar, la salud y la nutrición del Programa de Agricultura.
+              Evaluación formativa y sumativa oficial vinculada con la ${leccionDesc} del Programa de Agricultura.
             </p>
           </div>
 
