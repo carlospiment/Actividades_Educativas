@@ -262,10 +262,10 @@ var actividadesData = {
             {
               "numero": 4,
               "id": "act_1795292909603",
-              "nombre": "Limpieza",
-              "categoria": "Campo",
+              "nombre": "Lección, Conceptual y Mental",
+              "categoria": "Organizador",
               "tipo": "Cotidiana",
-              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
               "fecha_inicio": ""
             },
             {
@@ -713,7 +713,7 @@ var actividadesData = {
             {
               "numero": 3,
               "id": "act_1795294125570",
-              "nombre": "charla: Las Plantas Ornamentales",
+              "nombre": "Charla: Las Plantas Ornamentales",
               "categoria": "Organizador",
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
@@ -795,7 +795,7 @@ var actividadesData = {
             {
               "numero": 4,
               "id": "act_1795294310050",
-              "nombre": "charla: Las Plantas Ornamentales",
+              "nombre": "Charla: Las Plantas Ornamentales",
               "categoria": "Organizador",
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
@@ -850,7 +850,7 @@ var actividadesData = {
             {
               "numero": 1,
               "id": "act_1795294178716",
-              "nombre": "charla: Las Plantas Ornamentales",
+              "nombre": "Charla: Las Plantas Ornamentales",
               "categoria": "Organizador",
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",

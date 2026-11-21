@@ -388,7 +388,8 @@
 
       const isSeparador = cat.includes('separador') || nom.includes('separador') || act.numero === 1;
       const isGlosario = cat.includes('vocabulario') || nom.includes('glosario') || nom.includes('vocabulario');
-      const isLeccion = cat.includes('organizador') || nom.includes('lección') || nom.includes('leccion') || nom.includes('conceptual') || nom.includes('mental');
+      const isCharla = nom.includes('charla') || nom.includes('ornamentales');
+      const isLeccion = !isCharla && (cat.includes('organizador') || nom.includes('lección') || nom.includes('leccion') || nom.includes('conceptual') || nom.includes('mental'));
       const isPrueba = cat.includes('evaluación') || cat.includes('evaluacion') || nom.includes('prueba') || nom.includes('quiz') || nom.includes('evaluativa');
 
       if (isSeparador) {
@@ -730,6 +731,124 @@
               </div>
             </div>
           `;
+        } else if (grade === '6') {
+          // GLOSARIO DE TÉRMINOS - 6TO GRADO (Lección 6.3.1: Destino de la producción agrícola)
+          bodyHtml = `
+            <div class="bg-teal-50 border border-teal-200 rounded-2xl p-4 text-teal-950">
+              <h4 class="text-sm font-black text-teal-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+                <span>📖</span> Glosario de Términos Agrícolas (6.° Grado)
+              </h4>
+              <p class="text-xs leading-relaxed text-teal-800">
+                Vocabulario técnico curricular: <strong>Destino de la producción agrícola</strong> (Lección 6.3.1).
+              </p>
+            </div>
+
+            <!-- Selector de Modo: Sin Definición vs Con Definición -->
+            <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold">
+              <button id="btn-glosario-palabras" onclick="window.app.setGlossaryView('palabras')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
+                📝 Palabras para el Estudiante (Sin Definición)
+              </button>
+              <button id="btn-glosario-definiciones" onclick="window.app.setGlossaryView('definiciones')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                📘 Con Definiciones Completas
+              </button>
+            </div>
+
+            <!-- Contenido Palabras (Sin Definiciones) -->
+            <div id="glosario-view-palabras" class="space-y-2">
+              <p class="text-xs text-slate-500 italic">
+                Escribe estos 8 conceptos oficiales en tu cuaderno para investigar o formular su significado en clase:
+              </p>
+              <ol class="space-y-1.5 text-xs font-bold text-slate-800 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 list-decimal list-inside">
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Producción agrícola</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Destino de la producción</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Consumo escolar</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Consumo familiar</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Producto agrícola</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Alimentación saludable</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Recursos agrícolas</li>
+                <li class="p-1.5 bg-white rounded-lg border border-slate-200">Huerto escolar</li>
+              </ol>
+            </div>
+
+            <!-- Contenido Con Definiciones (No menos de 20 palabras por concepto) -->
+            <div id="glosario-view-definiciones" class="space-y-2.5 hidden">
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-teal-900 block mb-0.5">1. Producción agrícola:</strong>
+                <p class="text-slate-600">Conjunto de alimentos, frutos, hojas y vegetales obtenidos mediante las labores organizadas de cultivo, cuidado y cosecha en el huerto.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-teal-900 block mb-0.5">2. Destino de la producción:</strong>
+                <p class="text-slate-600">Decisión planificada sobre el uso o aprovechamiento final que se dará a los alimentos y productos cosechados en el huerto escolar.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-teal-900 block mb-0.5">3. Consumo escolar:</strong>
+                <p class="text-slate-600">Aprovechamiento de los productos agrícolas dentro de la escuela para fortalecer el comedor escolar, meriendas nutritivas y proyectos educativos saludables.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-teal-900 block mb-0.5">4. Consumo familiar:</strong>
+                <p class="text-slate-600">Destino de los productos agrícolas cosechados que son llevados a los hogares para complementar y mejorar la alimentación saludable familiar.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-teal-900 block mb-0.5">5. Producto agrícola:</strong>
+                <p class="text-slate-600">Alimento vegetal o recurso natural cosechado directamente de la tierra luego de cumplir su ciclo de crecimiento, nutrición y maduración.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-teal-900 block mb-0.5">6. Alimentación saludable:</strong>
+                <p class="text-slate-600">Hábito diario de consumir alimentos variados, frescos y equilibrados que aportan la energía y nutrientes indispensables para el bienestar físico.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-teal-900 block mb-0.5">7. Recursos agrícolas:</strong>
+                <p class="text-slate-600">Elementos indispensables como el agua, suelo, semillas fértiles, herramientas y el trabajo humano empleados para lograr una cosecha productiva y sostenible.</p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-200 text-xs">
+                <strong class="text-teal-900 block mb-0.5">8. Huerto escolar:</strong>
+                <p class="text-slate-600">Terreno educativo acondicionado dentro de la escuela donde estudiantes y docentes cultivan alimentos saludables mientras aprenden técnicas de agricultura responsable.</p>
+              </div>
+            </div>
+
+            <!-- RÚBRICA OFICIAL VOCABULARIO ILUSTRADO -->
+            <div class="space-y-2 pt-2 border-t border-slate-200">
+              <h4 class="text-sm font-black text-slate-900">Rúbrica Oficial: Vocabulario Ilustrado</h4>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-teal-900">5 - Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">30%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Definiciones</td>
+                      <td class="p-2.5 text-slate-600">Precisas, completas (mínimo 20 palabras) y redactadas con sus propias palabras.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Cumplimiento en Clase</td>
+                      <td class="p-2.5 text-slate-600">Trabajo realizado íntegramente durante la sesión de clase.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Ilustración</td>
+                      <td class="p-2.5 text-slate-600">Cada término cuenta con ilustración creativa y pertinente.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Caligrafía y Orden</td>
+                      <td class="p-2.5 text-slate-600">Letra impecable y términos ordenados alfabéticamente.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Ortografía</td>
+                      <td class="p-2.5 text-slate-600">Sin errores ortográficos, de puntuación ni acentuación.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          `;
         } else {
           // GLOSARIO DE TÉRMINOS - 3ER GRADO (Lección 3.3.1: El huerto escolar, la salud y la nutrición)
           bodyHtml = `
@@ -849,6 +968,168 @@
             </div>
           `;
         }
+        footerHtml = `
+          <button onclick="window.app.closeActivityModal()" class="w-full py-2.5 px-4 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold hover:bg-slate-300 transition-colors">
+            Cerrar
+          </button>
+        `;
+      } else if (isCharla) {
+        // CHARLA OFICIAL: LAS PLANTAS ORNAMENTALES (6.° GRADO)
+        bodyHtml = `
+          <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 text-indigo-950">
+            <h4 class="text-sm font-black text-indigo-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+              <span>🌸</span> Charla Expositiva: Las Plantas Ornamentales
+            </h4>
+            <p class="text-xs leading-relaxed text-indigo-800">
+              Guía de estudio oficial basada en el catálogo botánico para la exposición oral de sexto grado. Comprende el análisis de las especies ornamentales, sus requerimientos fisiológicos y las pautas para su cultivo responsable.
+            </p>
+          </div>
+
+          <!-- Dimensiones Clave de Cuidado -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between border-b pb-1">
+              <h4 class="text-sm font-black text-slate-900">1. Las 5 Dimensiones Fundamentales de Cuidado</h4>
+              <span class="text-[11px] font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-md">Pautas de Manejo</span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-1">
+                <strong class="text-amber-900 block font-bold flex items-center gap-1.5">
+                  <span>🌱</span> Suelo y Sustrato
+                </strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Textura fértil, suelta y rica en materia orgánica con óptimo drenaje para prevenir el encharcamiento y la asfixia radicular; control de acidez o alcalinidad (pH) según el requerimiento de la especie.
+                </p>
+              </div>
+
+              <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-1">
+                <strong class="text-amber-800 block font-bold flex items-center gap-1.5">
+                  <span>☀️</span> Luz Solar e Insolación
+                </strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Ubicación estratégica según necesidades fotoperiódicas: insolación directa (6+ horas diarias), semisombra tamizada o sombra protegida para preservar el follaje y asegurar floraciones vigorosas.
+                </p>
+              </div>
+
+              <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-1">
+                <strong class="text-blue-900 block font-bold flex items-center gap-1.5">
+                  <span>💧</span> Riego y Humedad
+                </strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Suministro hídrico calibrado: riego profundo y regular en especies de bosque tropical; riego espaciado y moderado en xerófitas o suculentas, evitando siempre mojar hojas vulnerables a hongos.
+                </p>
+              </div>
+
+              <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-1">
+                <strong class="text-emerald-900 block font-bold flex items-center gap-1.5">
+                  <span>✂️</span> Poda y Mantenimiento
+                </strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Poda formativa de ramas desordenadas, desmoche tras la floración para inducir nuevos brotes y retiro sistemático de hojas senescentes o flores marchitas para prevenir ataques de insectos y patógenos.
+                </p>
+              </div>
+
+              <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs sm:col-span-2 space-y-1">
+                <strong class="text-rose-900 block font-bold flex items-center gap-1.5">
+                  <span>🏡</span> Uso Paisajístico y Normas de Seguridad
+                </strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Disposición en macizos florales, setos delimitadores, jardineras colgantes o rocallas. <strong>Precaución de bioseguridad:</strong> Manejo supervisado de especies que presentan savia irritante o toxicidad por ingestión (como la adelfa o los frutos de lantana), señalizando su ubicación en áreas escolares.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Catálogo de 20 Especies de Estudio -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between border-b pb-1">
+              <h4 class="text-sm font-black text-slate-900">2. Catálogo Oficial de 20 Especies para la Charla</h4>
+              <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md">20 Plantas</span>
+            </div>
+            <p class="text-xs text-slate-600">
+              Cada estudiante o equipo seleccionará una especie para su disertación oral a partir del documento oficial:
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">1. Rosa</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">2. Orquídea</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">3. Hortensia</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">4. Begonia</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">5. Anturio</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">6. Crisantemo</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">7. Clavel</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">8. Lirio</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">9. Violeta africana</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">10. Azalea</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">11. Geranio</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">12. Petunia</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">13. Tulipán</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">14. Cala</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">15. Jazmín</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">16. Hibisco</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">17. Buganvilla</div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-center font-bold text-slate-800">18. Camelia</div>
+              <div class="p-2.5 bg-rose-50 rounded-xl border border-rose-200 text-center font-bold text-rose-900" title="Especie tóxica">19. Adelfa ⚠️</div>
+              <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-center font-bold text-amber-900" title="Frutos tóxicos">20. Lantana ⚠️</div>
+            </div>
+          </div>
+
+          <!-- Enlace al documento PDF oficial -->
+          <div class="p-4 bg-gradient-to-r from-teal-50 to-emerald-50 rounded-2xl border border-teal-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div>
+              <h5 class="text-xs font-black text-teal-950 uppercase tracking-wide">Documento PDF Oficial de Consulta</h5>
+              <p class="text-xs text-teal-800 mt-0.5">Consulta la guía ilustrada con la descripción botánica completa y los cuidados de cada planta.</p>
+            </div>
+            <a href="recursos/Plantas_Ornamentales.pdf" target="_blank" class="px-4 py-2 bg-teal-700 hover:bg-teal-800 text-white rounded-xl text-xs font-bold shadow-xs transition-all whitespace-nowrap flex items-center gap-1.5">
+              <span>📄</span> Abrir PDF de Plantas Ornamentales
+            </a>
+          </div>
+
+          <!-- Rúbrica Oficial de Evaluación: Exposición Oral -->
+          <div class="space-y-2 pt-2 border-t border-slate-200">
+            <h4 class="text-sm font-black text-slate-900">3. Rúbrica Oficial de Evaluación: Exposición Oral</h4>
+            <p class="text-xs text-slate-500 italic">
+              Matriz de valoración para la disertación de plantas ornamentales (escala 20 pts / Nota 5.0):
+            </p>
+            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+              <table class="w-full text-xs text-left border-collapse">
+                <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                  <tr>
+                    <th class="p-2.5 w-16">Peso</th>
+                    <th class="p-2.5">Criterio Oficial</th>
+                    <th class="p-2.5 text-indigo-900">5 - Excelente (Máximo)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 bg-white">
+                  <tr>
+                    <td class="p-2.5 font-bold text-slate-600">30%</td>
+                    <td class="p-2.5 font-bold text-slate-900">Dominio del Tema y Cuidados</td>
+                    <td class="p-2.5 text-slate-600">Explica con seguridad las 5 dimensiones de cuidado (suelo, luz, riego, poda y uso) de la planta seleccionada sin depender de notas.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 font-bold text-slate-600">25%</td>
+                    <td class="p-2.5 font-bold text-slate-900">Recurso de Apoyo y Ficha Técnica</td>
+                    <td class="p-2.5 text-slate-600">Presenta lámina ilustrada, ficha técnica botánica o planta viva con datos precisos, ordenados y legibles.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 font-bold text-slate-600">20%</td>
+                    <td class="p-2.5 font-bold text-slate-900">Dicción, Fluidez y Vocabulario</td>
+                    <td class="p-2.5 text-slate-600">Voz clara, tono adecuado, modulación firme y uso correcto de terminología agrícola y botánica.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 font-bold text-slate-600">15%</td>
+                    <td class="p-2.5 font-bold text-slate-900">Puntualidad y Tiempo Asignado</td>
+                    <td class="p-2.5 text-slate-600">Inicia su presentación en la fecha señalada y se ajusta estrictamente al rango de tiempo establecido.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 font-bold text-slate-600">10%</td>
+                    <td class="p-2.5 font-bold text-slate-900">Postura y Presentación Personal</td>
+                    <td class="p-2.5 text-slate-600">Uniforme impecable, contacto visual constante con la audiencia y postura corporal respetuosa y profesional.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
         footerHtml = `
           <button onclick="window.app.closeActivityModal()" class="w-full py-2.5 px-4 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold hover:bg-slate-300 transition-colors">
             Cerrar
@@ -1427,6 +1708,253 @@
 
             </div>
           `;
+        } else if (grade === '6') {
+          // LECCIÓN 6.3.1, CONCEPTUAL Y MENTAL - 6TO GRADO
+          bodyHtml = `
+            <div class="bg-teal-50 border border-teal-200 rounded-2xl p-4 text-teal-950">
+              <h4 class="text-sm font-black text-teal-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+                <span>🌱</span> Lección 6.3.1: Destino de la Producción Agrícola
+              </h4>
+              <p class="text-xs leading-relaxed text-teal-800">
+                Texto didáctico completo para el cuaderno, organizadores visuales y rúbricas oficiales de evaluación.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">1. Lección para el Cuaderno (Tablero)</h4>
+              <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-3">
+                <div>
+                  <h5 class="text-sm font-black text-teal-950 mb-1 flex items-center gap-1.5">
+                    <span>🌱</span> Destino de la producción agrícola
+                  </h5>
+                  <p class="leading-relaxed">
+                    La <strong>producción agrícola</strong> está formada por los productos que obtenemos mediante el cultivo organizado de plantas en el huerto.
+                  </p>
+                  <p class="mt-2 leading-relaxed">
+                    Después de cosechar debemos decidir cuál será el <strong>destino de la producción</strong>, que representa el uso planificado que se dará a los productos obtenidos:
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-teal-900 font-bold block">1. Consumo escolar:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    El <strong>consumo escolar</strong> ocurre cuando los productos agrícolas se utilizan en actividades de alimentación saludable dentro del contexto escolar (comedor escolar, meriendas nutritivas y proyectos educativos).
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-cyan-900 font-bold block">2. Consumo familiar:</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    El <strong>consumo familiar</strong> ocurre cuando los productos agrícolas se destinan a los hogares de los estudiantes para complementar y enriquecer la alimentación saludable familiar con alimentos frescos.
+                  </p>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-emerald-900 font-bold block">¿Cómo clasificamos la producción?</strong>
+                  <p class="text-slate-600 leading-relaxed">
+                    Para clasificar un producto cosechado debemos formular la pregunta clave: <strong>«¿Cuál será su destino?»</strong>
+                  </p>
+                  <ul class="list-disc list-inside space-y-1 text-slate-600 pl-1">
+                    <li>Si se utilizará en la escuela: <strong>Consumo escolar</strong>.</li>
+                    <li>Si se entregará para llevar al hogar: <strong>Consumo familiar</strong>.</li>
+                    <li><em>Un mismo producto puede tener ambos destinos</em> (por ejemplo, parte de una cosecha de tomates va al comedor y parte a los hogares).</li>
+                  </ul>
+                </div>
+
+                <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5">
+                  <strong class="text-indigo-900 font-bold block">Importancia de organizar la producción:</strong>
+                  <ol class="list-decimal list-inside space-y-1 text-slate-600 pl-1">
+                    <li>Conocer exactamente la cantidad cosechada.</li>
+                    <li>Determinar con equidad y orden su destino final.</li>
+                    <li>Aprovechar mejor los nutrientes de los alimentos frescos.</li>
+                    <li>Evitar pérdidas y desperdicios innecesarios.</li>
+                    <li>Utilizar de manera responsable los recursos agrícolas (agua, suelo, semillas, tiempo y trabajo).</li>
+                  </ol>
+                </div>
+
+                <div class="p-3 bg-teal-100/70 border border-teal-300 rounded-xl text-teal-950 font-bold">
+                  <span class="block text-[11px] uppercase tracking-wider text-teal-800 font-black mb-0.5">🌱 Idea principal:</span>
+                  El destino de la producción agrícola indica el uso que tendrán los productos cosechados. En el huerto escolar podemos organizar la producción para consumo escolar o consumo familiar, aprovechando responsablemente los alimentos y los recursos empleados para producirlos.
+                </div>
+              </div>
+
+              <!-- Metodología de Montaje Activo en el Cuaderno -->
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">2. Metodología de Montaje en el Cuaderno</h4>
+              <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-2">
+                <p>
+                  <strong>• Paso 1 (Fecha y Título):</strong> Escribir con letra legible el título central destacado: <em>Destino de la producción agrícola</em>.
+                </p>
+                <p>
+                  <strong>• Paso 2 (Estructura de Tarjetas):</strong> Se recortan y pegan cuatro tarjetas interactivas de papel de construcción ordenadas verticalmente:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-2">
+                  <div class="p-2 bg-white rounded-lg border border-teal-200 text-[11px]">
+                    <strong class="text-teal-900 block">Tarjeta 1: Concepto Central</strong>
+                    Producción agrícola y qué significa destino final.
+                  </div>
+                  <div class="p-2 bg-white rounded-lg border border-emerald-200 text-[11px]">
+                    <strong class="text-emerald-900 block">Tarjeta 2: Consumo Escolar</strong>
+                    Uso en comedor, meriendas y actividades saludables en la escuela.
+                  </div>
+                  <div class="p-2 bg-white rounded-lg border border-cyan-200 text-[11px]">
+                    <strong class="text-cyan-900 block">Tarjeta 3: Consumo Familiar</strong>
+                    Aporte a la nutrición y bienestar de los hogares.
+                  </div>
+                  <div class="p-2 bg-white rounded-lg border border-indigo-200 text-[11px]">
+                    <strong class="text-indigo-900 block">Tarjeta 4: Organización y Recursos</strong>
+                    Aprovechamiento responsable y prevención del desperdicio.
+                  </div>
+                </div>
+                <p>
+                  <strong>• Paso 3 (Rótulos y Conectores):</strong> Trazar flechas conectoras con regla y lápiz de color para vincular la cosecha con su destino responsable.
+                </p>
+              </div>
+
+              <!-- Rúbricas Oficiales -->
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1">3. Rúbricas Oficiales de Evaluación</h4>
+              
+              <!-- Rúbrica: Lección y Montaje -->
+              <div class="space-y-1.5">
+                <span class="text-xs font-bold text-slate-800">A. Rúbrica: Lección y Montaje en el Cuaderno</span>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                  <table class="w-full text-xs text-left border-collapse">
+                    <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                      <tr>
+                        <th class="p-2.5 w-16">Peso</th>
+                        <th class="p-2.5">Criterio Oficial</th>
+                        <th class="p-2.5 text-teal-900">5 - Excelente</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 bg-white">
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">25%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Clasificación según Destino</td>
+                        <td class="p-2.5 text-slate-600">Clasifica y justifica con total precisión los destinos de consumo escolar y consumo familiar.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">20%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Comprensión Curricular</td>
+                        <td class="p-2.5 text-slate-600">Explica con claridad la diferencia entre producto cosechado y destino planificado.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">20%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Montaje y Tarjetas Didácticas</td>
+                        <td class="p-2.5 text-slate-600">Cuatro tarjetas completas, recortadas con precisión, pegadas sin exceso de goma y con rotulación impecable.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">15%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Relación con Alimentación Saludable</td>
+                        <td class="p-2.5 text-slate-600">Relaciona pertinentemente la producción del huerto con la nutrición y bienestar humano.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">10%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Uso Responsable de Recursos</td>
+                        <td class="p-2.5 text-slate-600">Argumenta la importancia de evitar el desperdicio y cuidar el agua, suelo y herramientas.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">10%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Ortografía y Pulcritud</td>
+                        <td class="p-2.5 text-slate-600">Cuaderno sin tachones, caligrafía clara y ortografía perfecta en tildes y signos.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Rúbrica: Organizadores Visuales -->
+              <div class="space-y-1.5 pt-2">
+                <span class="text-xs font-bold text-slate-800">B. Rúbrica: Organizadores Visuales (Mapa Conceptual / Lluvia de Ideas)</span>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                  <table class="w-full text-xs text-left border-collapse">
+                    <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                      <tr>
+                        <th class="p-2.5 w-16">Peso</th>
+                        <th class="p-2.5">Criterio Oficial</th>
+                        <th class="p-2.5 text-teal-900">5 - Excelente</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 bg-white">
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">30%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Jerarquía y Relaciones Conceptuales</td>
+                        <td class="p-2.5 text-slate-600">Estructura jerárquica clara desde la producción hasta el consumo escolar, familiar y alimentación saludable.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">25%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Proposiciones y Conectores</td>
+                        <td class="p-2.5 text-slate-600">Palabras de enlace precisas que forman proposiciones válidas entre nodos conceptuales.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">25%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Diseño Visual y Creatividad</td>
+                        <td class="p-2.5 text-slate-600">Distribución balanceada, nodos bien delimitados y colores armónicos para cada ramificación.</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-bold text-slate-600">20%</td>
+                        <td class="p-2.5 font-bold text-slate-900">Claridad y Síntesis</td>
+                        <td class="p-2.5 text-slate-600">Conceptos breves y contundentes sin párrafos extensos ni saturación de información.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Vista Previa de Organizadores Visuales -->
+              <div class="space-y-3 pt-2">
+                <div class="flex items-center justify-between border-b pb-1">
+                  <h4 class="text-sm font-black text-slate-900">4. Organizadores Visuales Oficiales</h4>
+                  <span class="text-[11px] font-bold text-teal-700 bg-teal-100 px-2 py-0.5 rounded-md">Mermaid</span>
+                </div>
+
+                <!-- Selector de Organizador -->
+                <div class="flex items-center justify-between bg-slate-100 p-1 rounded-xl text-xs font-bold">
+                  <button id="btn-org-conceptual" onclick="window.app.setOrganizerView('conceptual')" class="flex-1 py-1.5 px-3 rounded-lg bg-white text-slate-900 shadow-xs transition-all">
+                    🗺️ 1. Mapa Conceptual Oficial
+                  </button>
+                  <button id="btn-org-mental" onclick="window.app.setOrganizerView('mental')" class="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                    💭 2. Lluvia de Ideas y Esquema Mental
+                  </button>
+                </div>
+
+                <!-- Vista 1: Mapa Conceptual -->
+                <div id="org-view-conceptual" class="space-y-3">
+                  <div class="p-3 bg-teal-50 rounded-xl border border-teal-200 text-xs text-teal-900 leading-relaxed">
+                    <strong>Diagrama de flujo conceptual:</strong> Relaciona la producción agrícola del huerto escolar con sus dos destinos curriculares (consumo escolar y familiar), su aporte a la alimentación saludable y los recursos necesarios.
+                  </div>
+                  <div class="p-4 bg-slate-900 text-teal-200 rounded-xl font-mono text-xs overflow-x-auto text-left leading-normal border border-slate-800">
+                    <p class="text-slate-400 mb-1 font-sans font-bold">// Estructura Conceptual Oficial:</p>
+                    <p>PRODUCCIÓN AGRÍCOLA ➔ Productos agrícolas ➔ Destino</p>
+                    <p class="pl-4">├── Consumo escolar ➔ Alimentación ➔ Alimentación saludable</p>
+                    <p class="pl-4">└── Consumo familiar ➔ Alimentación ➔ Alimentación saludable</p>
+                    <p>RECURSOS AGRÍCOLAS (Agua, Suelo, Semillas, Herramientas, Trabajo) ➔ Uso responsable ➔ Huerto escolar</p>
+                  </div>
+                </div>
+
+                <!-- Vista 2: Lluvia de Ideas / Esquema Mental -->
+                <div id="org-view-mental" class="space-y-3 hidden">
+                  <div class="p-3 bg-cyan-50 rounded-xl border border-cyan-200 text-xs text-cyan-900 leading-relaxed">
+                    <strong>Pregunta generadora en el aula:</strong> «¿Qué podemos hacer con los alimentos que cosechamos en el huerto escolar?»
+                  </div>
+
+                  <!-- 8 Respuestas con 8 Colores Distintos -->
+                  <div>
+                    <span class="text-[10px] uppercase tracking-wider font-bold text-slate-500 block mb-1">8 Respuestas registradas en el aula (Diseño 8 Colores):</span>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-bold">
+                      <div class="p-2 bg-teal-50 border border-teal-300 text-teal-900 rounded-lg text-center">🍽️ 1. Usar en comedor</div>
+                      <div class="p-2 bg-cyan-50 border border-cyan-300 text-cyan-900 rounded-lg text-center">🏠 2. Llevar a casa</div>
+                      <div class="p-2 bg-emerald-50 border border-emerald-300 text-emerald-900 rounded-lg text-center">🥗 3. Ensaladas saludables</div>
+                      <div class="p-2 bg-amber-50 border border-amber-300 text-amber-900 rounded-lg text-center">👨‍👩‍👧‍👦 4. Compartir familia</div>
+                      <div class="p-2 bg-orange-50 border border-orange-300 text-orange-900 rounded-lg text-center">📦 5. Clasificar cosecha</div>
+                      <div class="p-2 bg-indigo-50 border border-indigo-300 text-indigo-900 rounded-lg text-center">📓 6. Registrar cantidades</div>
+                      <div class="p-2 bg-rose-50 border border-rose-300 text-rose-900 rounded-lg text-center">🛡️ 7. Evitar desperdicios</div>
+                      <div class="p-2 bg-blue-50 border border-blue-300 text-blue-900 rounded-lg text-center">🍎 8. Comer nutritivo</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          `;
         } else {
           // LECCIÓN, CONCEPTUAL Y MENTAL - LECCIÓN DE 3ER GRADO
           bodyHtml = `
@@ -1685,14 +2213,17 @@
         const mapConceptualUrl = grade === '3' ? 'recursos/tercero-mapa-conceptual.html'
                                : grade === '4' ? 'recursos/cuarto-mapa-conceptual.html'
                                : grade === '5' ? 'recursos/quinto-mapa-conceptual.html'
+                               : grade === '6' ? 'recursos/sexto-mapa-conceptual.html'
                                : 'recursos/metodos-mapa-conceptual.html';
         const mapMentalUrl = grade === '3' ? 'recursos/tercero-mapa-mental.html'
                            : grade === '4' ? 'recursos/cuarto-mapa-mental.html'
                            : grade === '5' ? 'recursos/quinto-mapa-mental.html'
+                           : grade === '6' ? 'recursos/sexto-mapa-mental.html'
                            : 'recursos/metodos-mapa-mental.html';
 
         const btnClass = grade === '4' ? 'bg-sky-700 hover:bg-sky-800'
                        : grade === '5' ? 'bg-amber-700 hover:bg-amber-800'
+                       : grade === '6' ? 'bg-teal-700 hover:bg-teal-800'
                        : 'bg-emerald-700 hover:bg-emerald-800';
 
         footerHtml = `
@@ -1714,7 +2245,8 @@
                          : grade === '4' ? 'pruebas/cuarto_grado.html'
                          : grade === '5' ? 'pruebas/quinto_grado.html'
                          : 'pruebas/sexto_grado.html';
-        const leccionDesc = grade === '5' ? 'Lección 5.3.1: Métodos modernos de producción'
+        const leccionDesc = grade === '6' ? 'Lección 6.3.1: Destino de la producción agrícola'
+                          : grade === '5' ? 'Lección 5.3.1: Métodos modernos de producción'
                           : grade === '4' ? 'Lección 4.3.1: Beneficios e importancia del huerto escolar'
                           : 'Lección 3.3.1: El huerto escolar, la salud y la nutrición';
 
