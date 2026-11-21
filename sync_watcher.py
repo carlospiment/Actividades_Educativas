@@ -52,6 +52,8 @@ def run_watcher():
                     raw_data = json.load(f)
                 
                 os.environ["SYNC_TIMESTAMP"] = time.strftime("%Y-%m-%d %H:%M:%S")
+                import importlib
+                importlib.reload(sync_actividades)
                 sync_actividades.export_actividades_data(raw_data)
                 last_file, last_mtime = current_file, current_mtime
                 print("[SINCRONIZADO] Web de actividades actualizada con éxito.\n")

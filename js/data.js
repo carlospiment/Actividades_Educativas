@@ -2,7 +2,7 @@
  * Base de datos oficial sincronizada automáticamente desde la Libreta de Calificaciones
  */
 
-const actividadesData = {
+var actividadesData = {
   "meta": {
     "institucion": "Centro Educativo Oficial",
     "asignatura": "Tecnología (Agricultura)",
@@ -320,6 +320,24 @@ const actividadesData = {
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
               "fecha_inicio": ""
+            },
+            {
+              "numero": 2,
+              "id": "act_1795293077465",
+              "nombre": "Glosario",
+              "categoria": "Vocabulario",
+              "tipo": "Cotidiana",
+              "descripcion": "Definición e ilustración de términos técnicos.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 3,
+              "id": "act_1795293083011",
+              "nombre": "Lección, Conceptual y Mental",
+              "categoria": "Organizador",
+              "tipo": "Cotidiana",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
+              "fecha_inicio": ""
             }
           ]
         },
@@ -329,12 +347,12 @@ const actividadesData = {
           "dia": "JUEVES",
           "hora": "8:10 - 9:20 a.m.",
           "periodos": "III y IV",
-          "oficialLibreta": false,
+          "oficialLibreta": true,
           "actividades": [
             {
               "numero": 1,
-              "id": "act_1",
-              "nombre": "Separador trimestral: Sostenibilidad",
+              "id": "act_1795293095433",
+              "nombre": "Separador trimestral",
               "categoria": "Separador",
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
@@ -342,8 +360,8 @@ const actividadesData = {
             },
             {
               "numero": 2,
-              "id": "act_2",
-              "nombre": "Glosario: Materia Orgánica e Inorgánica",
+              "id": "act_1795293100023",
+              "nombre": "Glosario",
               "categoria": "Vocabulario",
               "tipo": "Cotidiana",
               "descripcion": "Definición e ilustración de términos técnicos.",
@@ -351,17 +369,17 @@ const actividadesData = {
             },
             {
               "numero": 3,
-              "id": "act_3",
-              "nombre": "Taller: Elaboración de Abono Bocashi",
-              "categoria": "Plan / Taller",
+              "id": "act_1795293107697",
+              "nombre": "Lección, Conceptual y Mental",
+              "categoria": "Organizador",
               "tipo": "Cotidiana",
-              "descripcion": "Planificación técnica y taller práctico.",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
               "fecha_inicio": ""
             },
             {
               "numero": 4,
-              "id": "act_4",
-              "nombre": "Campo: Aplicación de Bocashi y Cobertura",
+              "id": "act_1795293128983",
+              "nombre": "Limpieza",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
@@ -369,17 +387,17 @@ const actividadesData = {
             },
             {
               "numero": 5,
-              "id": "act_5",
-              "nombre": "Mapa Conceptual: Coberturas Vivas y Leguminosas",
-              "categoria": "Organizador",
+              "id": "act_1795293146369",
+              "nombre": "trabajo de campo",
+              "categoria": "Campo",
               "tipo": "Cotidiana",
-              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
+              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             },
             {
               "numero": 6,
-              "id": "act_6",
-              "nombre": "Prueba evaluativa trimestral",
+              "id": "act_1795293161799",
+              "nombre": "Prueba evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
@@ -455,12 +473,12 @@ const actividadesData = {
           "dia": "LUNES",
           "hora": "10:15 - 11:25 a.m.",
           "periodos": "VI y VII",
-          "oficialLibreta": false,
+          "oficialLibreta": true,
           "actividades": [
             {
               "numero": 1,
-              "id": "act_1",
-              "nombre": "Separador trimestral: Agricultura Agrosostenible",
+              "id": "act_1795294067246",
+              "nombre": "Separador trimestral",
               "categoria": "Separador",
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
@@ -468,8 +486,8 @@ const actividadesData = {
             },
             {
               "numero": 2,
-              "id": "act_2",
-              "nombre": "Glosario: Texturas y Salud del Suelo",
+              "id": "act_1795294071394",
+              "nombre": "Glosario",
               "categoria": "Vocabulario",
               "tipo": "Cotidiana",
               "descripcion": "Definición e ilustración de términos técnicos.",
@@ -477,35 +495,26 @@ const actividadesData = {
             },
             {
               "numero": 3,
-              "id": "act_3",
-              "nombre": "Taller: Texturas del Suelo al Tacto",
-              "categoria": "Plan / Taller",
-              "tipo": "Cotidiana",
-              "descripcion": "Planificación técnica y taller práctico.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 4,
-              "id": "act_4",
-              "nombre": "Campo: Preparación de Biofertilizante Líquido (Biol)",
+              "id": "act_1795294075036",
+              "nombre": "Limpieza",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             },
             {
-              "numero": 5,
-              "id": "act_5",
-              "nombre": "Práctica: Construcción de Nivel 'A' y Curvas",
-              "categoria": "Práctica",
+              "numero": 4,
+              "id": "act_1795294080826",
+              "nombre": "Lección, Conceptual y Mental",
+              "categoria": "Organizador",
               "tipo": "Cotidiana",
-              "descripcion": "Actividad didáctica formativa de Agricultura.",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
               "fecha_inicio": ""
             },
             {
-              "numero": 6,
-              "id": "act_6",
-              "nombre": "Prueba evaluativa: Conservación del Suelo y Agua",
+              "numero": 5,
+              "id": "act_1795294086378",
+              "nombre": "Prueba evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
@@ -519,60 +528,69 @@ const actividadesData = {
           "dia": "MIÉRCOLES",
           "hora": "8:10 - 9:20 a.m.",
           "periodos": "III y IV",
-          "oficialLibreta": false,
+          "oficialLibreta": true,
           "actividades": [
             {
               "numero": 1,
-              "id": "act_1",
-              "nombre": "Separador trimestral: Agricultura Agrosostenible",
-              "categoria": "Separador",
-              "tipo": "Cotidiana",
-              "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 2,
-              "id": "act_2",
-              "nombre": "Glosario: Texturas y Salud del Suelo",
-              "categoria": "Vocabulario",
-              "tipo": "Cotidiana",
-              "descripcion": "Definición e ilustración de términos técnicos.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 3,
-              "id": "act_3",
-              "nombre": "Taller: Texturas del Suelo al Tacto",
-              "categoria": "Plan / Taller",
-              "tipo": "Cotidiana",
-              "descripcion": "Planificación técnica y taller práctico.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 4,
-              "id": "act_4",
-              "nombre": "Campo: Preparación de Biofertilizante Líquido (Biol)",
+              "id": "act_1795293998150",
+              "nombre": "Limpieza",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             },
             {
-              "numero": 5,
-              "id": "act_5",
-              "nombre": "Práctica: Construcción de Nivel 'A' y Curvas",
+              "numero": 2,
+              "id": "act_1795294002790",
+              "nombre": "Separador trimestral",
+              "categoria": "Separador",
+              "tipo": "Cotidiana",
+              "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 3,
+              "id": "act_1795294025290",
+              "nombre": "preparación del terreno",
               "categoria": "Práctica",
               "tipo": "Cotidiana",
               "descripcion": "Actividad didáctica formativa de Agricultura.",
               "fecha_inicio": ""
             },
             {
+              "numero": 4,
+              "id": "act_1795294031586",
+              "nombre": "Glosario",
+              "categoria": "Vocabulario",
+              "tipo": "Cotidiana",
+              "descripcion": "Definición e ilustración de términos técnicos.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 5,
+              "id": "act_1795294041596",
+              "nombre": "Lección, Conceptual y Mental",
+              "categoria": "Organizador",
+              "tipo": "Cotidiana",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
+              "fecha_inicio": ""
+            },
+            {
               "numero": 6,
-              "id": "act_6",
-              "nombre": "Prueba evaluativa: Conservación del Suelo y Agua",
+              "id": "act_1795294047618",
+              "nombre": "Prueba evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 7,
+              "id": "act_1795294054437",
+              "nombre": "trabajo de campo",
+              "categoria": "Campo",
+              "tipo": "Cotidiana",
+              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             }
           ]
@@ -583,12 +601,12 @@ const actividadesData = {
           "dia": "VIERNES",
           "hora": "7:00 - 8:10 a.m.",
           "periodos": "I y II",
-          "oficialLibreta": false,
+          "oficialLibreta": true,
           "actividades": [
             {
               "numero": 1,
-              "id": "act_1",
-              "nombre": "Separador trimestral: Agricultura Agrosostenible",
+              "id": "act_1795293911687",
+              "nombre": "Separador trimestral",
               "categoria": "Separador",
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
@@ -596,44 +614,44 @@ const actividadesData = {
             },
             {
               "numero": 2,
-              "id": "act_2",
-              "nombre": "Glosario: Texturas y Salud del Suelo",
-              "categoria": "Vocabulario",
-              "tipo": "Cotidiana",
-              "descripcion": "Definición e ilustración de términos técnicos.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 3,
-              "id": "act_3",
-              "nombre": "Taller: Texturas del Suelo al Tacto",
-              "categoria": "Plan / Taller",
-              "tipo": "Cotidiana",
-              "descripcion": "Planificación técnica y taller práctico.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 4,
-              "id": "act_4",
-              "nombre": "Campo: Preparación de Biofertilizante Líquido (Biol)",
+              "id": "act_1795293925851",
+              "nombre": "Limpieza",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             },
             {
-              "numero": 5,
-              "id": "act_5",
-              "nombre": "Práctica: Construcción de Nivel 'A' y Curvas",
-              "categoria": "Práctica",
+              "numero": 3,
+              "id": "act_1795293931607",
+              "nombre": "Limpieza",
+              "categoria": "Campo",
               "tipo": "Cotidiana",
-              "descripcion": "Actividad didáctica formativa de Agricultura.",
+              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 4,
+              "id": "act_1795293944977",
+              "nombre": "Lección y Conceptual",
+              "categoria": "Organizador",
+              "tipo": "Cotidiana",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 5,
+              "id": "act_1795293950990",
+              "nombre": "Glosario",
+              "categoria": "Vocabulario",
+              "tipo": "Cotidiana",
+              "descripcion": "Definición e ilustración de términos técnicos.",
               "fecha_inicio": ""
             },
             {
               "numero": 6,
-              "id": "act_6",
-              "nombre": "Prueba evaluativa: Conservación del Suelo y Agua",
+              "id": "act_1795293958763",
+              "nombre": "Prueba evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
@@ -654,12 +672,12 @@ const actividadesData = {
           "dia": "MIÉRCOLES",
           "hora": "7:00 - 8:10 a.m.",
           "periodos": "I y II",
-          "oficialLibreta": false,
+          "oficialLibreta": true,
           "actividades": [
             {
               "numero": 1,
-              "id": "act_1",
-              "nombre": "Separador trimestral: Agroforestería y pH",
+              "id": "act_1795294097040",
+              "nombre": "Separador trimestral",
               "categoria": "Separador",
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
@@ -667,17 +685,17 @@ const actividadesData = {
             },
             {
               "numero": 2,
-              "id": "act_2",
-              "nombre": "Glosario: Asociación Milpa y Silvopastoril",
-              "categoria": "Vocabulario",
+              "id": "act_1795294105653",
+              "nombre": "Limpieza",
+              "categoria": "Campo",
               "tipo": "Cotidiana",
-              "descripcion": "Definición e ilustración de términos técnicos.",
+              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             },
             {
               "numero": 3,
-              "id": "act_3",
-              "nombre": "Mapa Conceptual: Propiedades Químicas y pH",
+              "id": "act_1795294125570",
+              "nombre": "charla: Las Plantas Ornamentales",
               "categoria": "Organizador",
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
@@ -685,29 +703,38 @@ const actividadesData = {
             },
             {
               "numero": 4,
-              "id": "act_4",
-              "nombre": "Campo: Aplicación de Enmiendas y Cal Agrícola",
-              "categoria": "Campo",
+              "id": "act_1795294142966",
+              "nombre": "Lección, Conceptual y Mental",
+              "categoria": "Organizador",
               "tipo": "Cotidiana",
-              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
               "fecha_inicio": ""
             },
             {
               "numero": 5,
-              "id": "act_5",
-              "nombre": "Taller: Proyecto de Protección de Microcuencas",
-              "categoria": "Plan / Taller",
+              "id": "act_1795294147964",
+              "nombre": "Glosario",
+              "categoria": "Vocabulario",
               "tipo": "Cotidiana",
-              "descripcion": "Planificación técnica y taller práctico.",
+              "descripcion": "Definición e ilustración de términos técnicos.",
               "fecha_inicio": ""
             },
             {
               "numero": 6,
-              "id": "act_6",
-              "nombre": "Prueba evaluativa sumativa final",
+              "id": "act_1795294154068",
+              "nombre": "Prueba evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 7,
+              "id": "act_1795294276406",
+              "nombre": "ensayo: preparación de alimentos",
+              "categoria": "Práctica",
+              "tipo": "Cotidiana",
+              "descripcion": "Actividad didáctica formativa de Agricultura.",
               "fecha_inicio": ""
             }
           ]
@@ -718,12 +745,12 @@ const actividadesData = {
           "dia": "MIÉRCOLES",
           "hora": "10:15 - 11:25 a.m.",
           "periodos": "VI y VII",
-          "oficialLibreta": false,
+          "oficialLibreta": true,
           "actividades": [
             {
               "numero": 1,
-              "id": "act_1",
-              "nombre": "Separador trimestral: Agroforestería y pH",
+              "id": "act_1795294292650",
+              "nombre": "Separador trimestral",
               "categoria": "Separador",
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
@@ -731,44 +758,62 @@ const actividadesData = {
             },
             {
               "numero": 2,
-              "id": "act_2",
-              "nombre": "Glosario: Asociación Milpa y Silvopastoril",
-              "categoria": "Vocabulario",
-              "tipo": "Cotidiana",
-              "descripcion": "Definición e ilustración de términos técnicos.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 3,
-              "id": "act_3",
-              "nombre": "Mapa Conceptual: Propiedades Químicas y pH",
-              "categoria": "Organizador",
-              "tipo": "Cotidiana",
-              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 4,
-              "id": "act_4",
-              "nombre": "Campo: Aplicación de Enmiendas y Cal Agrícola",
+              "id": "act_1795294298778",
+              "nombre": "Limpieza",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             },
             {
-              "numero": 5,
-              "id": "act_5",
-              "nombre": "Taller: Proyecto de Protección de Microcuencas",
-              "categoria": "Plan / Taller",
+              "numero": 3,
+              "id": "act_1795294303970",
+              "nombre": "Limpieza",
+              "categoria": "Campo",
               "tipo": "Cotidiana",
-              "descripcion": "Planificación técnica y taller práctico.",
+              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 4,
+              "id": "act_1795294310050",
+              "nombre": "charla: Las Plantas Ornamentales",
+              "categoria": "Organizador",
+              "tipo": "Cotidiana",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 5,
+              "id": "act_1795294317174",
+              "nombre": "Lección, Conceptual y Mental",
+              "categoria": "Organizador",
+              "tipo": "Cotidiana",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
               "fecha_inicio": ""
             },
             {
               "numero": 6,
-              "id": "act_6",
-              "nombre": "Prueba evaluativa sumativa final",
+              "id": "act_1795294323324",
+              "nombre": "Glosario",
+              "categoria": "Vocabulario",
+              "tipo": "Cotidiana",
+              "descripcion": "Definición e ilustración de términos técnicos.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 7,
+              "id": "act_1795294331392",
+              "nombre": "ensayo: preparación de alimentos",
+              "categoria": "Práctica",
+              "tipo": "Cotidiana",
+              "descripcion": "Actividad didáctica formativa de Agricultura.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 8,
+              "id": "act_1795294344064",
+              "nombre": "Prueba evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
@@ -782,60 +827,78 @@ const actividadesData = {
           "dia": "JUEVES",
           "hora": "9:40 - 10:50 a.m.",
           "periodos": "V y VI",
-          "oficialLibreta": false,
+          "oficialLibreta": true,
           "actividades": [
             {
               "numero": 1,
-              "id": "act_1",
-              "nombre": "Separador trimestral: Agroforestería y pH",
-              "categoria": "Separador",
-              "tipo": "Cotidiana",
-              "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 2,
-              "id": "act_2",
-              "nombre": "Glosario: Asociación Milpa y Silvopastoril",
-              "categoria": "Vocabulario",
-              "tipo": "Cotidiana",
-              "descripcion": "Definición e ilustración de términos técnicos.",
-              "fecha_inicio": ""
-            },
-            {
-              "numero": 3,
-              "id": "act_3",
-              "nombre": "Mapa Conceptual: Propiedades Químicas y pH",
+              "id": "act_1795294178716",
+              "nombre": "charla: Las Plantas Ornamentales",
               "categoria": "Organizador",
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
               "fecha_inicio": ""
             },
             {
-              "numero": 4,
-              "id": "act_4",
-              "nombre": "Campo: Aplicación de Enmiendas y Cal Agrícola",
+              "numero": 2,
+              "id": "act_1795294183230",
+              "nombre": "Separador trimestral",
+              "categoria": "Separador",
+              "tipo": "Cotidiana",
+              "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 3,
+              "id": "act_1795294188866",
+              "nombre": "Limpieza",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             },
             {
-              "numero": 5,
-              "id": "act_5",
-              "nombre": "Taller: Proyecto de Protección de Microcuencas",
-              "categoria": "Plan / Taller",
+              "numero": 4,
+              "id": "act_1795294192812",
+              "nombre": "Glosario",
+              "categoria": "Vocabulario",
               "tipo": "Cotidiana",
-              "descripcion": "Planificación técnica y taller práctico.",
+              "descripcion": "Definición e ilustración de términos técnicos.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 5,
+              "id": "act_1795294198098",
+              "nombre": "Lección, Conceptual y Mental",
+              "categoria": "Organizador",
+              "tipo": "Cotidiana",
+              "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
               "fecha_inicio": ""
             },
             {
               "numero": 6,
-              "id": "act_6",
-              "nombre": "Prueba evaluativa sumativa final",
+              "id": "act_1795294240736",
+              "nombre": "ensayo: preparación de alimentos",
+              "categoria": "Práctica",
+              "tipo": "Cotidiana",
+              "descripcion": "Actividad didáctica formativa de Agricultura.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 7,
+              "id": "act_1795294249614",
+              "nombre": "Prueba evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 8,
+              "id": "act_1795294260058",
+              "nombre": "trabajo de campo",
+              "categoria": "Campo",
+              "tipo": "Cotidiana",
+              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
             }
           ]
