@@ -537,6 +537,15 @@ var actividadesData = {
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
               "fecha_inicio": ""
+            },
+            {
+              "numero": 6,
+              "id": "act_1795310298913",
+              "nombre": "Bitácora: El Semillero de Aji",
+              "categoria": "Bitácora",
+              "tipo": "Cotidiana",
+              "descripcion": "Registro técnico del semillero de ají criollo en cubetas biodegradables.",
+              "fecha_inicio": ""
             }
           ]
         },
@@ -610,6 +619,15 @@ var actividadesData = {
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
               "fecha_inicio": ""
+            },
+            {
+              "numero": 8,
+              "id": "act_1795310291095",
+              "nombre": "Bitácora: El Semillero de Aji",
+              "categoria": "Bitácora",
+              "tipo": "Cotidiana",
+              "descripcion": "Registro técnico del semillero de ají criollo en cubetas biodegradables.",
+              "fecha_inicio": ""
             }
           ]
         },
@@ -673,6 +691,15 @@ var actividadesData = {
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
+              "fecha_inicio": ""
+            },
+            {
+              "numero": 7,
+              "id": "act_1795310281118",
+              "nombre": "Bitácora: El Semillero de Aji",
+              "categoria": "Bitácora",
+              "tipo": "Cotidiana",
+              "descripcion": "Registro técnico del semillero de ají criollo en cubetas biodegradables.",
               "fecha_inicio": ""
             }
           ]

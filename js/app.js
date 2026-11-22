@@ -287,6 +287,7 @@
         case 'Campo': return 'bg-emerald-100 text-emerald-900 border-emerald-300';
         case 'Organizador': return 'bg-purple-100 text-purple-900 border-purple-300';
         case 'Evaluación': return 'bg-rose-100 text-rose-900 border-rose-300';
+        case 'Bitácora': return 'bg-teal-100 text-teal-900 border-teal-300';
         case 'Plan / Taller': return 'bg-blue-100 text-blue-900 border-blue-300';
         default: return 'bg-slate-100 text-slate-800 border-slate-300';
       }
@@ -434,13 +435,137 @@
       const nom = (act.nombre || '').toLowerCase();
       const cat = (act.categoria || '').toLowerCase();
 
-      const isSeparador = cat.includes('separador') || nom.includes('separador') || act.numero === 1;
-      const isGlosario = cat.includes('vocabulario') || nom.includes('glosario') || nom.includes('vocabulario');
-      const isCharla = nom.includes('charla') || nom.includes('ornamentales');
-      const isLeccion = !isCharla && (cat.includes('organizador') || nom.includes('lección') || nom.includes('leccion') || nom.includes('conceptual') || nom.includes('mental'));
-      const isPrueba = cat.includes('evaluación') || cat.includes('evaluacion') || nom.includes('prueba') || nom.includes('quiz') || nom.includes('evaluativa');
+      const isBitacora = nom.includes('bitácora') || nom.includes('bitacora') || nom.includes('semillero');
+      const isSeparador = !isBitacora && (cat.includes('separador') || nom.includes('separador') || act.numero === 1);
+      const isGlosario = !isBitacora && (cat.includes('vocabulario') || nom.includes('glosario') || nom.includes('vocabulario'));
+      const isCharla = !isBitacora && (nom.includes('charla') || nom.includes('ornamentales'));
+      const isLeccion = !isBitacora && !isCharla && (cat.includes('organizador') || nom.includes('lección') || nom.includes('leccion') || nom.includes('conceptual') || nom.includes('mental'));
+      const isPrueba = !isBitacora && (cat.includes('evaluación') || cat.includes('evaluacion') || nom.includes('prueba') || nom.includes('quiz') || nom.includes('evaluativa'));
 
-      if (isSeparador) {
+      if (isBitacora) {
+        // BITÁCORA: EL SEMILLERO DE AJÍ - INSTRUCCIONES, MATERIALES, METODOLOGÍA Y RÚBRICA
+        bodyHtml = `
+          <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-emerald-950">
+            <h4 class="text-sm font-black text-emerald-900 uppercase tracking-wide mb-1 flex items-center gap-2">
+              <span>🌱</span> Bitácora Científica: El Semillero de Ají
+            </h4>
+            <p class="text-xs leading-relaxed text-emerald-800">
+              Proyecto formativo y experimental de 5.° Grado enfocado en el establecimiento de un semillero en cubeta de huevos biodegradable, aplicando el método científico para el registro sistemático de germinación, crecimiento y cuidados culturales.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <!-- 1. MATERIALES REQUERIDOS -->
+            <div>
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1 flex items-center gap-1.5">
+                <span>📦</span> 1. Materiales de Trabajo Requeridos
+              </h4>
+              <ul class="text-xs text-slate-700 space-y-1.5 bg-slate-50 p-3.5 rounded-xl border border-slate-200 mt-2">
+                <li><strong>• Cubeta o cartón de huevos:</strong> Recipiente biodegradable de 12 a 30 alvéolos individuales para la siembra inicial.</li>
+                <li><strong>• Semillas de ají criollo:</strong> Semillas seleccionadas, secas, limpias y de buena viabilidad biológica.</li>
+                <li><strong>• Punzón, clavo o lápiz:</strong> Para perforar los orificios de drenaje en la base de cada espacio de la cubeta.</li>
+                <li><strong>• Sustrato fértil y suelto:</strong> Mezcla de tierra negra tamizada enriquecida con compost orgánico o cáscaras de huevo trituradas.</li>
+                <li><strong>• Pala pequeña o cuchara:</strong> Para rellenar y nivelar los alvéolos de forma limpia y homogénea.</li>
+                <li><strong>• Atomizador o regadera de lluvia fina:</strong> Para humedecer el sustrato sin remover ni desenterrar las semillas.</li>
+                <li><strong>• Paletas de madera o marcadores:</strong> Para rotular la fecha de siembra, variedad y datos del estudiante.</li>
+                <li><strong>• Cuaderno o ficha de campo:</strong> Para el registro semanal de la bitácora científica (fechas, medidas y observaciones).</li>
+              </ul>
+            </div>
+
+            <!-- 2. METODOLOGÍA TÉCNICA -->
+            <div>
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1 flex items-center gap-1.5">
+                <span>🔬</span> 2. Metodología de Implementación (Paso a Paso)
+              </h4>
+              <div class="space-y-2 mt-2 text-xs text-slate-700">
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs">
+                  <strong class="text-emerald-800 block mb-0.5">Paso 1 • Preparación y Drenaje de la Cubeta</strong>
+                  <p>Perforar con el punzón la base de cada alvéolo de la cubeta de huevos para garantizar el drenaje adecuado y evitar el exceso de humedad y proliferación de hongos.</p>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs">
+                  <strong class="text-emerald-800 block mb-0.5">Paso 2 • Relleno y Nivelación del Sustrato</strong>
+                  <p>Llenar cada compartimento con el sustrato preparado hasta 1 cm antes del borde superior. Nivelar suavemente con la cuchara sin compactar en exceso para permitir la aireación de las raíces.</p>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs">
+                  <strong class="text-emerald-800 block mb-0.5">Paso 3 • Siembra y Profundidad Adecuada</strong>
+                  <p>Colocar de 2 a 3 semillas de ají criollo por alvéolo a una profundidad de 0.5 cm (aproximadamente el doble de su tamaño). Cubrir con una capa fina de tierra suelta.</p>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs">
+                  <strong class="text-emerald-800 block mb-0.5">Paso 4 • Riego Inicial y Microclima de Germinación</strong>
+                  <p>Humedecer el semillero con atomizador hasta saturar el sustrato sin encharcar. Ubicar en un lugar cálido, ventilado y con luz indirecta. Evitar sol directo durante los primeros días.</p>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs">
+                  <strong class="text-emerald-800 block mb-0.5">Paso 5 • Monitoreo y Porcentaje de Germinación</strong>
+                  <p>Monitorear la emergencia de los brotes entre el día 7 y 12. Registrar en la bitácora cuántas semillas germinaron y calcular el porcentaje: <em>(Semillas nacidas ÷ Semillas sembradas) × 100</em>.</p>
+                </div>
+                <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs">
+                  <strong class="text-emerald-800 block mb-0.5">Paso 6 • Registro de Crecimiento y Preparación para Trasplante</strong>
+                  <p>Medir semanalmente la altura con regla (en cm), contar hojas verdaderas y registrar incidencias. Al alcanzar 10 a 12 cm de altura y 4 a 6 hojas verdaderas (35-45 días), preparar el trasplante a la era o huerto definitivo.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. RÚBRICA OFICIAL DE EVALUACIÓN -->
+            <div>
+              <h4 class="text-sm font-black text-slate-900 border-b pb-1 flex items-center gap-1.5">
+                <span>📊</span> 3. Rúbrica Oficial de Evaluación: Bitácora de Campo
+              </h4>
+              <p class="text-[11px] text-slate-500 italic mt-1 mb-2">
+                Evaluación integral técnico-pedagógica (Escala 100% / Calificación 5.0):
+              </p>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+                <table class="w-full text-xs text-left border-collapse">
+                  <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <tr>
+                      <th class="p-2.5 w-16">Peso</th>
+                      <th class="p-2.5">Criterio Oficial</th>
+                      <th class="p-2.5 text-emerald-800">5 - Excelente (Máximo)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">25%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Preparación del Semillero</td>
+                      <td class="p-2.5 text-slate-600">Perforación correcta del drenaje, sustrato fértil bien nivelado y siembra a la profundidad adecuada.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">25%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Registro Sistemático en Bitácora</td>
+                      <td class="p-2.5 text-slate-600">Anota semanalmente fechas exactas, mediciones en cm, conteo de hojas verdaderas y observaciones claras.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">20%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Cuidados Culturales y Riego</td>
+                      <td class="p-2.5 text-slate-600">Riego oportuno por aspersión, control de humedad sin encharcamiento y ubicación con iluminación adecuada.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Análisis Científico de Datos</td>
+                      <td class="p-2.5 text-slate-600">Calcula correctamente el porcentaje de germinación y analiza la tasa de desarrollo de las plántulas.</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2.5 font-bold text-slate-600">15%</td>
+                      <td class="p-2.5 font-bold text-slate-900">Orden, Limpieza y Responsabilidad</td>
+                      <td class="p-2.5 text-slate-600">Presentación impecable del cuaderno de bitácora, puntualidad en las revisiones y trabajo prolijo.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        `;
+
+        footerHtml = `
+          <div class="flex flex-col sm:flex-row gap-2 w-full">
+            <a href="recursos/metodos-semillero.html" class="flex-1 py-2.5 px-3 bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-800 hover:to-teal-900 text-white rounded-xl text-xs font-bold text-center transition-colors shadow-xs flex items-center justify-center gap-1.5">
+              <span>🌱</span><span>Ver Guía Completa y Calculadora de Semillero</span>
+            </a>
+            <button onclick="window.app.closeActivityModal()" class="py-2.5 px-3 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-xl text-xs font-bold transition-colors">
+              Cerrar
+            </button>
+          </div>
+        `;
+      } else if (isSeparador) {
         // ACTIVIDAD 1: SEPARADOR TRIMESTRAL - RÚBRICA OFICIAL: MANUALIDADES
         bodyHtml = `
           <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-amber-950">
