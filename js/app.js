@@ -34,21 +34,28 @@
       }
     }
 
-    // ── Sincronización Automática en Tiempo Real ─────────────────────────────
+    // ── Sincronización Automática Eficiente (Sin Congelamiento) ──────────────
     setupAutoSync() {
-      // 1. Al volver el foco a la ventana (cuando el profesor cambia de pestaña o aplicación)
-      window.addEventListener('focus', () => {
-        this.checkForUpdates();
+      // 1. Al volver el foco o visibilidad (cuando el docente regresa de la libreta)
+      window.addEventListener('focus', () => this.checkForUpdates());
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          this.checkForUpdates();
+        }
       });
 
-      // 2. Comprobación periódica cada 4 segundos
+      // 2. Comprobación pasiva cada 20 segundos únicamente si la pestaña está visible
       setInterval(() => {
-        this.checkForUpdates();
-      }, 4000);
+        if (!document.hidden) {
+          this.checkForUpdates();
+        }
+      }, 20000);
     }
 
     checkForUpdates() {
-      // Recarga dinámica del script js/data.js con parámetro anti-caché
+      if (this._isCheckingUpdates) return;
+      this._isCheckingUpdates = true;
+
       const oldScript = document.getElementById('dynamic-data-script');
       if (oldScript) oldScript.remove();
 
@@ -56,33 +63,39 @@
       script.id = 'dynamic-data-script';
       script.src = `js/data.js?t=${Date.now()}`;
       script.onload = () => {
-        if (window.actividadesData) {
-          const currentSerialized = JSON.stringify(window.actividadesData);
-          if (currentSerialized !== this._lastSerialized) {
-            console.log('[SYNC] ¡Nuevas actividades detectadas desde la libreta! Actualizando vista...');
-            this._lastSerialized = currentSerialized;
-            this.data = window.actividadesData;
-            this.refreshCurrentView();
-            this.showSyncToast('¡Actividades actualizadas desde la libreta!');
-          }
-        }
+        this._isCheckingUpdates = false;
+      };
+      script.onerror = () => {
+        this._isCheckingUpdates = false;
       };
       document.body.appendChild(script);
     }
 
     onDataUpdated(newData) {
+      if (!newData) return;
+      const currentSerialized = JSON.stringify(newData);
+      // Solo actualizar la interfaz si realmente cambiaron los datos de la libreta
+      if (currentSerialized === this._lastSerialized) {
+        return;
+      }
+      console.log('[SYNC] ¡Nuevas actividades detectadas desde la libreta! Actualizando vista...');
+      this._lastSerialized = currentSerialized;
       this.data = newData;
-      this._lastSerialized = JSON.stringify(newData);
-      this.refreshCurrentView();
+      this.refreshCurrentView(false); // Preservar posición de scroll al sincronizar
+      this.showSyncToast('¡Actividades actualizadas desde la libreta!');
     }
 
-    refreshCurrentView() {
+    refreshCurrentView(shouldScroll = false) {
+      const savedScroll = window.scrollY;
       if (this.currentScreen === 'grades') {
-        this.goToGrades();
+        this.goToGrades(shouldScroll);
       } else if (this.currentScreen === 'groups') {
-        this.goToGrade(this.currentGrade);
+        this.goToGrade(this.currentGrade, shouldScroll);
       } else if (this.currentScreen === 'activities') {
-        this.goToGroup(this.currentGroupId);
+        this.goToGroup(this.currentGroupId, shouldScroll);
+      }
+      if (!shouldScroll) {
+        window.scrollTo({ top: savedScroll, behavior: 'instant' });
       }
     }
 
@@ -102,16 +115,16 @@
     }
 
     // ── Pantalla 1: Selección de Grado ──────────────────────────────────────
-    goToGrades() {
+    goToGrades(scroll = true) {
       this.currentScreen = 'grades';
       document.getElementById('screen-grades').classList.remove('hidden');
       document.getElementById('screen-groups').classList.add('hidden');
       document.getElementById('screen-activities').classList.add('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // ── Pantalla 2: Selección de Grupo ──────────────────────────────────────
-    goToGrade(gradeNum) {
+    goToGrade(gradeNum, scroll = true) {
       this.currentGrade = gradeNum;
       this.currentScreen = 'groups';
 
@@ -156,15 +169,15 @@
       document.getElementById('screen-grades').classList.add('hidden');
       document.getElementById('screen-groups').classList.remove('hidden');
       document.getElementById('screen-activities').classList.add('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     backToGroups() {
-      this.goToGrade(this.currentGrade);
+      this.goToGrade(this.currentGrade, true);
     }
 
     // ── Pantalla 3: Lista de Actividades del Grupo ──────────────────────────
-    goToGroup(groupId) {
+    goToGroup(groupId, scroll = true) {
       this.currentGroupId = groupId;
       this.currentScreen = 'activities';
 
@@ -213,7 +226,7 @@
       document.getElementById('screen-grades').classList.add('hidden');
       document.getElementById('screen-groups').classList.add('hidden');
       document.getElementById('screen-activities').classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     setActivityLayout(layout) {
@@ -2394,6 +2407,7 @@
       modalBody.innerHTML = bodyHtml;
       modalFooter.innerHTML = footerHtml;
 
+      this._savedScrollY = window.scrollY;
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
@@ -2403,6 +2417,9 @@
       if (modal) {
         modal.classList.add('hidden');
         document.body.style.overflow = '';
+        if (typeof this._savedScrollY === 'number') {
+          window.scrollTo({ top: this._savedScrollY, behavior: 'instant' });
+        }
       }
     }
 
