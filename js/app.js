@@ -19,7 +19,27 @@
       console.log('[Actividades] Inicializando aplicación con sincronización automática...');
       this.setupAutoSync();
       this.setupModalEvents();
-      this.goToGrades();
+      this.restoreNavigationState();
+    }
+
+    restoreNavigationState() {
+      try {
+        const savedScreen = sessionStorage.getItem('meduca_screen');
+        const savedGrade = sessionStorage.getItem('meduca_grade');
+        const savedGroup = sessionStorage.getItem('meduca_group');
+
+        if (savedScreen === 'activities' && savedGrade && savedGroup) {
+          this.currentGrade = savedGrade;
+          this.goToGroup(savedGroup, false);
+          return;
+        } else if (savedScreen === 'groups' && savedGrade) {
+          this.goToGrade(savedGrade, false);
+          return;
+        }
+      } catch (e) {
+        console.warn('Error al restaurar estado de navegación:', e);
+      }
+      this.goToGrades(false);
     }
 
     setupModalEvents() {
@@ -117,6 +137,11 @@
     // ── Pantalla 1: Selección de Grado ──────────────────────────────────────
     goToGrades(scroll = true) {
       this.currentScreen = 'grades';
+      try {
+        sessionStorage.setItem('meduca_screen', 'grades');
+        sessionStorage.removeItem('meduca_grade');
+        sessionStorage.removeItem('meduca_group');
+      } catch (e) {}
       document.getElementById('screen-grades').classList.remove('hidden');
       document.getElementById('screen-groups').classList.add('hidden');
       document.getElementById('screen-activities').classList.add('hidden');
@@ -127,6 +152,11 @@
     goToGrade(gradeNum, scroll = true) {
       this.currentGrade = gradeNum;
       this.currentScreen = 'groups';
+      try {
+        sessionStorage.setItem('meduca_screen', 'groups');
+        sessionStorage.setItem('meduca_grade', gradeNum);
+        sessionStorage.removeItem('meduca_group');
+      } catch (e) {}
 
       const gradeData = this.data.grados?.[gradeNum];
       if (!gradeData) return;
@@ -180,6 +210,11 @@
     goToGroup(groupId, scroll = true) {
       this.currentGroupId = groupId;
       this.currentScreen = 'activities';
+      try {
+        sessionStorage.setItem('meduca_screen', 'activities');
+        sessionStorage.setItem('meduca_grade', this.currentGrade);
+        sessionStorage.setItem('meduca_group', groupId);
+      } catch (e) {}
 
       const gradeData = this.data.grados?.[this.currentGrade];
       if (!gradeData) return;
@@ -2241,10 +2276,10 @@
 
         footerHtml = `
           <div class="flex flex-col sm:flex-row gap-2 w-full">
-            <a href="${mapConceptualUrl}" target="_blank" class="flex-1 py-2.5 px-3 ${btnClass} text-white rounded-xl text-xs font-bold text-center transition-colors">
+            <a href="${mapConceptualUrl}" class="flex-1 py-2.5 px-3 ${btnClass} text-white rounded-xl text-xs font-bold text-center transition-colors">
               🗺️ Ver Mapa Conceptual Completo
             </a>
-            <a href="${mapMentalUrl}" target="_blank" class="flex-1 py-2.5 px-3 bg-indigo-700 hover:bg-indigo-800 text-white rounded-xl text-xs font-bold text-center transition-colors">
+            <a href="${mapMentalUrl}" class="flex-1 py-2.5 px-3 bg-indigo-700 hover:bg-indigo-800 text-white rounded-xl text-xs font-bold text-center transition-colors">
               🧠 Ver Mapa Mental Completo
             </a>
             <button onclick="window.app.closeActivityModal()" class="py-2.5 px-3 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-xl text-xs font-bold transition-colors">
