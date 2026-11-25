@@ -115,57 +115,57 @@ var actividadesData = {
           "actividades": [
             {
               "numero": 1,
-              "id": "act_1795283186297",
-              "nombre": "Separador trimestral",
+              "id": "act_1795489429335",
+              "nombre": "Separador Trimestral",
               "categoria": "Separador",
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-09-21"
             },
             {
               "numero": 2,
-              "id": "act_1795283198055",
+              "id": "act_1795489511668",
               "nombre": "Glosario",
               "categoria": "Vocabulario",
               "tipo": "Cotidiana",
               "descripcion": "Definición e ilustración de términos técnicos.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-09-28"
             },
             {
               "numero": 3,
-              "id": "act_1795283208462",
+              "id": "act_1795490344804",
               "nombre": "Limpieza",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-09-28"
             },
             {
               "numero": 4,
-              "id": "act_1795283250341",
+              "id": "act_1795490362270",
               "nombre": "Lección, Conceptual y Mental",
               "categoria": "Organizador",
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-10-26"
             },
             {
               "numero": 5,
-              "id": "act_1795283266698",
+              "id": "act_1795490375566",
               "nombre": "Limpieza",
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-11-09"
             },
             {
               "numero": 6,
-              "id": "act_1795283304461",
-              "nombre": "Prueba evaluativa",
+              "id": "act_1795490387846",
+              "nombre": "Prueba Evaluativa",
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-11-16"
             }
           ]
         },
@@ -184,7 +184,7 @@ var actividadesData = {
               "categoria": "Separador",
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-09-15"
             },
             {
               "numero": 2,
@@ -193,7 +193,7 @@ var actividadesData = {
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-09-29"
             },
             {
               "numero": 3,
@@ -202,7 +202,7 @@ var actividadesData = {
               "categoria": "Vocabulario",
               "tipo": "Cotidiana",
               "descripcion": "Definición e ilustración de términos técnicos.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-10-27"
             },
             {
               "numero": 4,
@@ -211,7 +211,7 @@ var actividadesData = {
               "categoria": "Organizador",
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-11-17"
             },
             {
               "numero": 5,
@@ -220,7 +220,16 @@ var actividadesData = {
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-11-16"
+            },
+            {
+              "numero": 6,
+              "id": "act_1795546279659",
+              "nombre": "Limpieza",
+              "categoria": "Campo",
+              "tipo": "Cotidiana",
+              "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
+              "fecha_inicio": "2026-11-24"
             }
           ]
         },
@@ -239,7 +248,7 @@ var actividadesData = {
               "categoria": "Separador",
               "tipo": "Cotidiana",
               "descripcion": "Apertura y rotulación del cuaderno del trimestre.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-09-17"
             },
             {
               "numero": 2,
@@ -248,7 +257,7 @@ var actividadesData = {
               "categoria": "Vocabulario",
               "tipo": "Cotidiana",
               "descripcion": "Definición e ilustración de términos técnicos.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-09-24"
             },
             {
               "numero": 3,
@@ -257,7 +266,7 @@ var actividadesData = {
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-09-24"
             },
             {
               "numero": 4,
@@ -266,7 +275,7 @@ var actividadesData = {
               "categoria": "Organizador",
               "tipo": "Cotidiana",
               "descripcion": "Construcción de mapas conceptuales y esquemas mentales.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-10-22"
             },
             {
               "numero": 5,
@@ -275,7 +284,7 @@ var actividadesData = {
               "categoria": "Evaluación",
               "tipo": "Cotidiana",
               "descripcion": "Comprobación sumativa de conocimientos adquiridos.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-11-19"
             },
             {
               "numero": 6,
@@ -284,7 +293,7 @@ var actividadesData = {
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-11-12"
             },
             {
               "numero": 7,
@@ -293,7 +302,7 @@ var actividadesData = {
               "categoria": "Campo",
               "tipo": "Cotidiana",
               "descripcion": "Labores prácticas en terreno, huerto escolar y áreas verdes.",
-              "fecha_inicio": ""
+              "fecha_inicio": "2026-11-19"
             }
           ]
         }
